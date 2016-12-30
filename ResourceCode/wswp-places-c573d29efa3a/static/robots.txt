@@ -1,0 +1,11 @@
+# section 1
+User-agent: BadCrawler
+Disallow: /
+
+# section 2
+User-agent: *
+Disallow: /trap 
+Crawl-delay: 5
+
+# section 3
+Sitemap: http://example.webscraping.com/sitemap.xml

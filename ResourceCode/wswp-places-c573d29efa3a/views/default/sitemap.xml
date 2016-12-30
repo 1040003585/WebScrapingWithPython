@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{ for record in records: }}<url><loc>http://web-scraping.appspot.com{{= record.pretty_url }}</loc></url>
+{{ pass }}</urlset> 
