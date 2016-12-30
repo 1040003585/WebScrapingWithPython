@@ -1,0 +1,11 @@
+{
+    "default": {
+        "fields": {
+            "Population": {
+                "required": false, 
+                "type": "text", 
+                "vary": false
+            }
+        }
+    }
+}

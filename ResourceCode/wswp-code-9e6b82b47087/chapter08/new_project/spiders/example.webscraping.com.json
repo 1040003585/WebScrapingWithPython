@@ -1,0 +1,14 @@
+{
+    "exclude_patterns": [], 
+    "follow_patterns": [], 
+    "init_requests": [], 
+    "links_to_follow": "patterns", 
+    "respect_nofollow": true, 
+    "start_urls": [
+        "http://example.webscraping.com"
+    ], 
+    "template_names": [
+        "7bb5-d5fc-fc50"
+    ], 
+    "templates": []
+}
