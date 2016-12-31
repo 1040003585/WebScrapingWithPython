@@ -22,7 +22,7 @@ Sitemap: http://example.webscraping.com/sitemap.xml
 
 ### 1.3.2检查网站地图
 所有网页链接： http://example.webscraping.com/sitemap.xml
-```
+```xml
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://example.webscraping.com/view/Afghanistan-1</loc>
@@ -45,7 +45,7 @@ Google搜索：`site:http://example.webscraping.com/view` 有117个网页
 ### 1.3.4识别网站所有技术
 用**buildwith模块**可以检查网站构建的技术类型。
 安装库：`pip install buildwith`
-```
+```python
 >>> import builtwith
 >>> builtwith.parse('http://example.webscraping.com')
 {u'javascript-frameworks': [u'jQuery', u'Modernizr', u'jQuery UI'],
@@ -62,7 +62,7 @@ Google搜索：`site:http://example.webscraping.com/view` 有117个网页
 用**WHOIS协议**查询域名注册者。 
 文档：https://pypi.python.org/pypi/python-whois 
 安装：`pip install python-whois` 
-``` 
+``` python
 >>> import whois
 >>> print whois.whois('appspot.com')
 { ......
@@ -93,7 +93,7 @@ Google搜索：`site:http://example.webscraping.com/view` 有117个网页
 
 ### 1.4.1下载网页
 `1.4.1download1.py`
-```
+```Python
 # -*- coding: utf-8 -*-
 
 import urllib2
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 ```
 
 `1.4.1download2.py`
-```
+```Python
 def download2(url):
     """Download function that catches errors"""
     print 'Downloading:', url
@@ -121,7 +121,7 @@ def download2(url):
 #### 1.重试下载
 当服务器过载返回503 Service Unavailable错误，我们可以尝试重新下载。如果是404 Not Found这种错误，说明网页目前并不存在，尝试两样的请求也没有。
 `1.4.1download3.py`
-```
+```Python
 def download3(url, num_retries=2):
     """Download function that also retries 5XX errors"""
     print 'Downloading:', url
@@ -160,7 +160,7 @@ None
 
 ```
 为了下载更加可靠，我们需要设定控制用户代理，如下代码设定了一个用户代理`Wu_Being`。
-```
+```Python
 def download4(url, user_agent='Wu_Being', num_retries=2):
     """Download function that includes user agent support"""
     print 'Downloading:', url
@@ -180,7 +180,7 @@ def download4(url, user_agent='Wu_Being', num_retries=2):
 ```
 ### 1.4.2爬取网站地图
 我们从示例网址的`robots.txt`文件中发现的网站地图`sitemap.xml`来下载所有网页。为了解析网站地图，我们用一个简单的正则表达式从`<loc>`标签提取出URL。*下一章介绍一种更加键壮的解析方法——**CSS选择器***
-```
+```Python
 # -*- coding: utf-8 -*-
 
 import re
@@ -212,7 +212,7 @@ http://example.webscraping.com/view/China-47
 http://example.webscraping.com/view/Zimbabwe-252
 ```
 由于这些URL只有后缀不同，输入http://example.webscraping.com/view/47 也能正常显示China页面，所有我们可以遍历ID下载所有国家页面。
-```1.4.3iteration_crawler1.py
+```Python
 import itertools
 from common import Download
 
@@ -231,7 +231,7 @@ def iteration():
             pass
 ```
 如果有的ID是不连续的，爬虫到某个断点就会退出，可以修改为连续5次下载错误才会停止遍历。
-```1.4.3iteration_crawler2.py
+```Python
 def iteration():
     max_errors = 5 # maximum number of consecutive download errors allowed
     num_errors = 0 # current number of consecutive download errors
@@ -267,7 +267,7 @@ Traceback (most recent call last):
 ValueError: unknown url type: /index/1
 ```
 由于`/index/1`是相对链接，浏览器可以识别，但urllib2无法知道上下文，所有我们可以用`urlparse`模块来转换为绝对链接。
-```
+```Python
 def link_crawler(seed_url, link_regex):
     crawl_queue = [seed_url]
     seen = set(crawl_queue) # keep track which URL's have seen before
@@ -281,7 +281,7 @@ def link_crawler(seed_url, link_regex):
 
 ```
 上面这段代码还是有问题，这些地点相互之间存在链接，澳大利亚链接到南极洲，南极洲链接到澳大利亚，这样爬虫就会在不断循环下载同样的内容。为了避免重复下载，修改上面函数具备存储发现URL的功能。
-```
+```Python
 def link_crawler(seed_url, link_regex):
     """Crawl from the given seed URL following links matched by link_regex
     """
@@ -303,7 +303,7 @@ def link_crawler(seed_url, link_regex):
 #### 高级功能
 ##### 1.解析robots.txt
 robotparser模块首先加载robots.txt文件，然后通过can_fetch()函数确定指定的用户代理是否允许访问网页。
-```
+```Python
 >>> import robotparser
 >>> rp=robotparser.RobotFileParser()
 >>> rp.set_url('http://example.webscraping.com/robots.txt')
@@ -320,7 +320,7 @@ True
 True
 ```
 为了将该功能集成到爬虫中，我们需要在crawl循环中添加该检查。
-```
+```Python
     while crawl_queue:
 	url = crawl_queue.pop()
 	# check url passes robots.txt restrictions
@@ -332,7 +332,7 @@ True
 ```
 ##### 2.支持代理（Proxy）
 有时我们需要使用代理访问某个网站。比如Netflix屏蔽美国以外的大多数国家。使用urllib2支持代理没有想象中那么容易（可以尝试用更好友的Python HTTP模块`requests`来实现这个功能，文档：http://docs.python-requests.org ）。下面是使用urllib2支持代理的代码。
-```
+```Python
 def download5(url, user_agent='wswp', proxy=None, num_retries=2):
     """Download function with support for proxies"""
     print 'Downloading:', url
@@ -355,7 +355,7 @@ def download5(url, user_agent='wswp', proxy=None, num_retries=2):
 ```
 ##### 3.下载限速
 当我们爬取的网站过快，可能会被封禁或造成服务器过载的风险。为了降低这些风险，我们可以在两次下载之间添加延时，从而对爬虫限速。
-```
+```Python
 class Throttle:
     """Throttle downloading by sleeping between requests to same domain
     """
@@ -376,7 +376,7 @@ class Throttle:
         self.domains[domain] = datetime.now()
 ```
 Throttle类记录每个上次访问的时间，如果当前时间距离上次访问时间小于指定延时，则执行睡眠操作。我们可以在每次下载之前调用Throttle对爬虫进行限速。
-```
+```Python
 throttle = Throttle(delay)
 ...
 throttle.wait(url)
@@ -384,7 +384,7 @@ html = download(url, headers, proxy=proxy, num_retries=num_retries)
 ```
 ##### 4.避免爬虫陷阱
 想要避免陷入爬虫陷阱，一人简单的方法就是记录到达当前网页经过了多少个链接，也就是**深度**。当达到最大尝试就不再向队列中添加该网页中的链接了，我们需要修改seen变量为一个字典，增加页面尝试的记录。如果想禁用该功能，只需将max_depth设为一个负数即可。
-```
+```Python
 def link_crawler(..., max_depth=2):
     seen = {seed_url: 0}
     ...
