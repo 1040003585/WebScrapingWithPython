@@ -26,6 +26,7 @@ def link_crawler(seed_url, link_regex=None, delay=5, max_depth=-1, max_urls=-1, 
         url = crawl_queue.pop()
         # check url passes robots.txt restrictions
         if rp.can_fetch(user_agent, url):
+        #if get_robots(seed_url):
             throttle.wait(url)
             html = download(url, headers, proxy=proxy, num_retries=num_retries)
             links = []
@@ -131,5 +132,9 @@ def get_links(html):
 
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
-    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=3, user_agent='GoodCrawler')
+#    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
+#    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=3, user_agent='GoodCrawler')
+
+    link_crawler('http://127.0.0.1:8000/places', '/places/default/(index|view)', delay=0, num_retries=1, max_depth=2, user_agent='GoodCrawler') 
+#http://127.0.0.1:8000/places/static/robots.txt 
+

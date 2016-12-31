@@ -266,7 +266,7 @@ Traceback (most recent call last):
     raise ValueError, "unknown url type: %s" % self.__original
 ValueError: unknown url type: /index/1
 ```
-由于`/index/1`是相对链接，浏览器可以识别，但urllib2无法知道上下文，所有我们要转换为绝对链接。
+由于`/index/1`是相对链接，浏览器可以识别，但urllib2无法知道上下文，所有我们可以用`urlparse`模块来转换为绝对链接。
 ```
 def link_crawler(seed_url, link_regex):
     crawl_queue = [seed_url]
@@ -275,7 +275,7 @@ def link_crawler(seed_url, link_regex):
         url = crawl_queue.pop()
         html = Download(url)
         for link in get_links(html):
-            if re.match(link_regex, link):
+            if re.match(link_regex, link):	#匹配正则表达式
                 link = urlparse.urljoin(seed_url, link)
                 crawl_queue.append(link)
 

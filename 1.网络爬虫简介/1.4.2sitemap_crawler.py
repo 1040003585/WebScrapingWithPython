@@ -23,3 +23,5 @@ def crawl_sitemap(url):
 
 if __name__ == '__main__':
     crawl_sitemap('http://example.webscraping.com/sitemap.xml')
+#    crawl_sitemap('http://127.0.0.1:8000/places/static/sitemap.xml') 
+
