@@ -1,5 +1,5 @@
 import re
-from common import download
+from common import Download
 
 
 def link_crawler(seed_url, link_regex):
@@ -8,7 +8,7 @@ def link_crawler(seed_url, link_regex):
     crawl_queue = [seed_url] # the queue of URL's to download
     while crawl_queue:
         url = crawl_queue.pop()
-        html = download(url)
+        html = Download(url)
         # filter for links matching our regular expression
         for link in get_links(html):
             if re.match(link_regex, link):
