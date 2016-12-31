@@ -147,7 +147,7 @@ if __name__ == '__main__':
 - 5××：错误出现在服务端问题
 
 #### 2.设置用户代理（user_agent）
-默认情况下，urllib2使用`Python-urllib/2.7`作为用户代理下载网页内容的，其中2.7是Python的版本号。如果质量不加的Python网络的爬虫（上面的代码）有会造成服务器过载，一些网站还会封禁这个默认用户代理。比如，使用Python默认用户代理的情况下，访问https://www.meetup.com/，会出现：
+默认情况下，urllib2使用`Python-urllib/2.7`作为用户代理下载网页内容的，其中2.7是Python的版本号。如果质量不加的Python网络的爬虫（上面的代码）有会造成服务器过载，一些网站还会封禁这个默认用户代理。比如，使用Python默认用户代理的情况下，访问https://www.meetup.com/ ，会出现：
 ```
 wu_being@ubuntukylin64:~/GitHub/WebScrapingWithPython/1.网络爬虫简介$ python 1.4.1download4.py 
 Downloading: https://www.meetup.com/
@@ -331,7 +331,7 @@ True
 
 ```
 ##### 2.支持代理（Proxy）
-有时我们需要使用代理访问某个网站。比如Netflix屏蔽美国以外的大多数国家。使用urllib2支持代理没有想象中那么容易（可以尝试用更好友的Python HTTP模块`requests`来实现这个功能，文档：http://docs.python-requests.org）。下面是使用urllib2支持代理的代码。
+有时我们需要使用代理访问某个网站。比如Netflix屏蔽美国以外的大多数国家。使用urllib2支持代理没有想象中那么容易（可以尝试用更好友的Python HTTP模块`requests`来实现这个功能，文档：http://docs.python-requests.org ）。下面是使用urllib2支持代理的代码。
 ```
 def download5(url, user_agent='wswp', proxy=None, num_retries=2):
     """Download function with support for proxies"""
@@ -397,7 +397,7 @@ def link_crawler(..., max_depth=2):
 ```
 ##### 5.最终版本
 `1.4.4link_crawler4_UltimateVersion.py`
-```
+```Python
 import re
 import urlparse
 import urllib2
