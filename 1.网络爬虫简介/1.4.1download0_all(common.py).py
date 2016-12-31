@@ -77,4 +77,4 @@ download = download5
 
 
 if __name__ == '__main__':
-    print download('http://example.webscraping.com/sitemap.xml')
+    print download('http://127.0.0.1:8000/places')

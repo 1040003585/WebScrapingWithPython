@@ -1,4 +1,5 @@
 # 1.网络爬虫简介
+[TOC]
 ## 1.3背景调研
 ### 1.3.1检查robots.txt
 http://example.webscraping.com/robots.txt
@@ -93,17 +94,20 @@ Google搜索：`site:http://example.webscraping.com/view` 有117个网页
 ### 1.4.1下载网页
 `1.4.1download1.py`
 ```
+# -*- coding: utf-8 -*-
+
 import urllib2
 
 def download1(url):
     """Simple downloader"""
     return urllib2.urlopen(url).read()
+
+if __name__ == '__main__':
+    print download1('https://www.baidu.com')
 ```
 
 `1.4.1download2.py`
 ```
-import urllib2
-
 def download2(url):
     """Download function that catches errors"""
     print 'Downloading:', url
@@ -114,14 +118,10 @@ def download2(url):
         html = None
     return html
 ```
-**1.重试下载**
+#### 1.重试下载
 当服务器过载返回503 Service Unavailable错误，我们可以尝试重新下载。如果是404 Not Found这种错误，说明网页目前并不存在，尝试两样的请求也没有。
 `1.4.1download3.py`
 ```
-# -*- coding: utf-8 -*-
-
-import urllib2
-
 def download3(url, num_retries=2):
     """Download function that also retries 5XX errors"""
     print 'Downloading:', url
@@ -138,15 +138,15 @@ def download3(url, num_retries=2):
 
 download = download3
 
-
 if __name__ == '__main__':
     print download('http://httpstat.us/500')
 ```
+
 **互联网工程任务组**定义了HTTP错误的完整列表：https://tools.ietf.org/html/rfc7231#section-6
 - 4××：错误出现在请求存在问题 
 - 5××：错误出现在服务端问题
 
-**2.设置用户代理**
+#### 2.设置用户代理
 默认情况下，urllib2使用`Python-urllib/2.7`作为用户代理下载网页内容的，其中2.7是Python的版本号。如果质量不加的Python网络的爬虫（上面的代码）有会造成服务器过载，一些网站还会封禁这个默认用户代理。比如，使用Python默认用户代理的情况下，访问https://www.meetup.com/，会出现：
 ```
 wu_being@ubuntukylin64:~/GitHub/WebScrapingWithPython/1.网络爬虫简介$ python 1.4.1download4.py 
@@ -179,13 +179,12 @@ def download4(url, user_agent='Wu_Being', num_retries=2):
 
 ```
 ### 1.4.2爬取网站地图
-我们从示例网址的robots.txt文件中发现的网站地图`sitemap.xml`来下载所有网页。为了解析网站地图，我们用一个简单的正则表达式从`<loc>`标签提取出URL。*下一章介绍一种更加键壮的解析方法**CSS选择器***
+我们从示例网址的`robots.txt`文件中发现的网站地图`sitemap.xml`来下载所有网页。为了解析网站地图，我们用一个简单的正则表达式从`<loc>`标签提取出URL。*下一章介绍一种更加键壮的解析方法——**CSS选择器***
 ```
 # -*- coding: utf-8 -*-
 
 import re
 from common import Download
-
 
 def crawl_sitemap(url):
     # download the sitemap file
@@ -203,10 +202,53 @@ def crawl_sitemap(url):
 #>Downloading: http://example.webscraping.com/view/Albania-3
 #>......
 
-
 if __name__ == '__main__':
     crawl_sitemap('http://example.webscraping.com/sitemap.xml')
 ```
 ### 1.4.3遍历每个网页的数据库ID
+```
+http://example.webscraping.com/view/Afghanistan-1
+http://example.webscraping.com/view/China-47
+http://example.webscraping.com/view/Zimbabwe-252
+```
+由于这些URL只有后缀不同，输入http://example.webscraping.com/view/47也能正常显示China页面，所有我们可以遍历ID下载所有国家页面。
+```1.4.3iteration_crawler1.py
+import itertools
+from common import Download
 
+def iteration():
+    for page in itertools.count(1):
+        url = 'http://example.webscraping.com/view/-%d' % page
+        #url = 'http://example.webscraping.com/view/-{}'.format(page)
+        html = Download(url)
+        if html is None:
+            # received an error trying to download this webpage
+            # so assume have reached the last country ID and can stop downloading
+            break
+        else:
+            # success - can scrape the result
+            # ...
+            pass
+```
+如果有的ID是不连续的，爬虫到某个断点就会退出，可以修改为连续5次下载错误才会停止遍历。
+```1.4.3iteration_crawler2.py
+def iteration():
+    max_errors = 5 # maximum number of consecutive download errors allowed
+    num_errors = 0 # current number of consecutive download errors
+    for page in itertools.count(1):
+        url = 'http://example.webscraping.com/view/-{}'.format(page)
+        html = download(url)
+        if html is None:
+            # received an error trying to download this webpage
+            num_errors += 1
+            if num_errors == max_errors:
+                # reached maximum amount of errors in a row so exit
+                break
+            # so assume have reached the last country ID and can stop downloading
+        else:
+            # success - can scrape the result
+            # ...
+            num_errors = 0
+```
 ### 1.4.4跟踪网页链接
+

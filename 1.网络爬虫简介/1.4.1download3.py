@@ -20,4 +20,4 @@ download = download3
 
 
 if __name__ == '__main__':
-    print download('http://httpstat.us/500')
+    print download('http://httpstat.us/500',10)
