@@ -1,3 +1,5 @@
+# coding:utf-8
+
 import re
 import urlparse
 import urllib2
@@ -103,9 +105,9 @@ def download(url, headers, proxy, num_retries, data=None):
 def normalize(seed_url, link):
     """Normalize this URL by removing hash and adding domain
     """
-    link, _ = urlparse.urldefrag(link) # remove hash to avoid duplicates
-    return urlparse.urljoin(seed_url, link)
-
+    link, _ = urlparse.urldefrag(link) # remove hash to avoid duplicates 把url #后的部分赋给量变 _
+    return urlparse.urljoin(seed_url, link) #连接url协议域名部分和虚拟目录部分
+       
 
 def same_domain(url1, url2):
     """Return True if both URL's belong to same domain
@@ -132,8 +134,8 @@ def get_links(html):
 
 
 if __name__ == '__main__':
-#    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
-#    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=3, user_agent='GoodCrawler')
+    #link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
+    #link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=3, user_agent='GoodCrawler')
 
     link_crawler('http://127.0.0.1:8000/places', '/places/default/(index|view)', delay=0, num_retries=1, max_depth=2, user_agent='GoodCrawler') 
 #http://127.0.0.1:8000/places/static/robots.txt 

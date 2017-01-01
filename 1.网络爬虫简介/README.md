@@ -1,6 +1,6 @@
 # 1.网络爬虫简介
 [TOC]
-## 1.3背景调研
+## 1.3调研目标网站背景
 ### 1.3.1检查robots.txt
 http://example.webscraping.com/robots.txt
 ```
@@ -84,7 +84,7 @@ Google搜索：`site:http://example.webscraping.com/view` 有117个网页
 }
 ```
 该域名归属于Google，用Google App Engine服务。*注：Google经常会阻断网络爬虫！*
-## 1.4编写第一个网络爬虫
+## 1.4第一个网络爬虫
 **爬取（Crawling）**一个网站的方法有很多，选用哪种方法更加合适取决于目标网站的结构。
 这里先探讨如何安全地`1.4.1下载网页`，然后介绍3种爬取网站方法：
 - `1.4.2爬取网站地图`；
@@ -157,7 +157,6 @@ wu_being@ubuntukylin64:~/GitHub/WebScrapingWithPython/1.网络爬虫简介$ pyth
 Downloading: https://www.meetup.com/
 Download error: Forbidden
 None
-
 ```
 为了下载更加可靠，我们需要设定控制用户代理，如下代码设定了一个用户代理`Wu_Being`。
 ```Python
@@ -176,7 +175,6 @@ def download4(url, user_agent='Wu_Being', num_retries=2):
                 # retry 5XX HTTP errors
                 html = download4(url, user_agent, num_retries-1)
     return html
-
 ```
 ### 1.4.2爬取网站地图
 我们从示例网址的`robots.txt`文件中发现的网站地图`sitemap.xml`来下载所有网页。为了解析网站地图，我们用一个简单的正则表达式从`<loc>`标签提取出URL。*下一章介绍一种更加键壮的解析方法——**CSS选择器***
@@ -278,7 +276,6 @@ def link_crawler(seed_url, link_regex):
             if re.match(link_regex, link):	#匹配正则表达式
                 link = urlparse.urljoin(seed_url, link)
                 crawl_queue.append(link)
-
 ```
 上面这段代码还是有问题，这些地点相互之间存在链接，澳大利亚链接到南极洲，南极洲链接到澳大利亚，这样爬虫就会在不断循环下载同样的内容。为了避免重复下载，修改上面函数具备存储发现URL的功能。
 ```Python
@@ -328,7 +325,6 @@ True
 	    ...
 	else:
 	    print 'Blocked by robots.txt:', url
-
 ```
 ##### 2.支持代理（Proxy）
 有时我们需要使用代理访问某个网站。比如Netflix屏蔽美国以外的大多数国家。使用urllib2支持代理没有想象中那么容易（可以尝试用更好友的Python HTTP模块`requests`来实现这个功能，文档：http://docs.python-requests.org ）。下面是使用urllib2支持代理的代码。
@@ -398,6 +394,8 @@ def link_crawler(..., max_depth=2):
 ##### 5.最终版本
 `1.4.4link_crawler4_UltimateVersion.py`
 ```Python
+# coding:utf-8
+
 import re
 import urlparse
 import urllib2
@@ -426,6 +424,7 @@ def link_crawler(seed_url, link_regex=None, delay=5, max_depth=-1, max_urls=-1, 
         url = crawl_queue.pop()
         # check url passes robots.txt restrictions
         if rp.can_fetch(user_agent, url):
+        #if get_robots(seed_url):
             throttle.wait(url)
             html = download(url, headers, proxy=proxy, num_retries=num_retries)
             links = []
@@ -502,9 +501,9 @@ def download(url, headers, proxy, num_retries, data=None):
 def normalize(seed_url, link):
     """Normalize this URL by removing hash and adding domain
     """
-    link, _ = urlparse.urldefrag(link) # remove hash to avoid duplicates
-    return urlparse.urljoin(seed_url, link)
-
+    link, _ = urlparse.urldefrag(link) # remove hash to avoid duplicates 把url #后的部分赋给量变 _
+    return urlparse.urljoin(seed_url, link) #连接url协议域名部分和虚拟目录部分
+       
 
 def same_domain(url1, url2):
     """Return True if both URL's belong to same domain
@@ -531,8 +530,12 @@ def get_links(html):
 
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
-    link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=3, user_agent='GoodCrawler')
+    #link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, user_agent='BadCrawler')
+    #link_crawler('http://example.webscraping.com', '/(index|view)', delay=0, num_retries=1, max_depth=3, user_agent='GoodCrawler')
+
+    link_crawler('http://127.0.0.1:8000/places', '/places/default/(index|view)', delay=0, num_retries=1, max_depth=2, user_agent='GoodCrawler') 
+#http://127.0.0.1:8000/places/static/robots.txt 
+
 
 ```
 
