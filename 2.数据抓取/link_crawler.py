@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 import urlparse
 import urllib2
@@ -25,13 +27,14 @@ def link_crawler(seed_url, link_regex=None, delay=5, max_depth=-1, max_urls=-1, 
     while crawl_queue:
         url = crawl_queue.pop()
         depth = seen[url]
-	        # check url passes robots.txt restrictions
+        # check url passes robots.txt restrictions
         if rp.can_fetch(user_agent, url):
             throttle.wait(url)
             html = download(url, headers, proxy=proxy, num_retries=num_retries)
             links = []
             if scrape_callback:
-                links.extend(scrape_callback(url, html) or [])
+		#print 'scrape_callback:>>>>>>>>>>>'+str(scrape_callback(url, html))####
+                links.extend(scrape_callback(url, html) or [])##这里没有返回一个待爬取的URL列表
 
             if depth != max_depth:
                 # can still crawl further
