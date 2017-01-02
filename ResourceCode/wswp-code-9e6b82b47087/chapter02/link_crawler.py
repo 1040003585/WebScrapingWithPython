@@ -78,7 +78,6 @@ class Throttle:
         self.domains[domain] = datetime.now()
 
 
-
 def download(url, headers, proxy, num_retries, data=None):
     print 'Downloading:', url
     request = urllib2.Request(url, data, headers)
