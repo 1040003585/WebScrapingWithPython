@@ -1,6 +1,6 @@
 # 数据提取
 我们让这个爬虫比每个网页中抽取一些数据，然后实现某些事情，这种做法也被称为**提取（scraping）**。
-#1 数据抓取方法
+#1 提取数据方法
 - 正则表达式
 - BeautifulSoup模块（流行）
 - Lxml（强大）
@@ -255,7 +255,7 @@ Downloading: http://example.webscraping.com/view/Yemen-250
 ...
 ```
 ## 3.2 回调函数二
-下面我们对功能进行扩展，把得到的结果数据保存到CSV表格中。这里我们使用了回调类，以便保持csv的writer属性的状态。csv的writer属性在构造方法中进行了实现化处理，然后在__call__方法中多次写操作。*注意，__call__是一个特殊方法，也是链接接爬虫中scrape_callback的调用方法。也就是说scrape_callback(url,html)和scrape_callback.__call__(url,html)是等价的。可以参考https://docs.python.org/3/reference/datamodel.html#special-method-names 。*。
+下面我们对功能进行扩展，把得到的结果数据保存到CSV表格中。这里我们使用了回调类，以便保持csv的writer属性的状态。csv的writer属性在构造方法中进行了实现化处理，然后在__call__方法中多次写操作。*注意，__call__是一个特殊方法，也是链接接爬虫中scrape_callback的调用方法。也就是说scrape_callback(url,html)和scrape_callback.__call__(url,html)是等价的。可以参考https://docs.python.org/3/reference/datamodel.html#special-method-names .*。
 ```python
 # -*- coding: utf-8 -*-
 
@@ -280,7 +280,8 @@ class ScrapeCallback:
             self.writer.writerow(row)
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com/', '/(index|view)', scrape_callback=ScrapeCallback())
+    link_crawler('http://127.0.0.1:8000/places', '/places/default/(index|view)', scrape_callback=ScrapeCallback())
+    #link_crawler('http://example.webscraping.com/', '/(index|view)', scrape_callback=ScrapeCallback())
 ```
 
 ## 3.3 复用上章的链接爬虫代码
