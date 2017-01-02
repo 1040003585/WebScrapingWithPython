@@ -24,4 +24,5 @@ class ScrapeCallback:
 
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com/', '/(index|view)', scrape_callback=ScrapeCallback())
+    link_crawler('http://127.0.0.1:8000/places', '/places/default/(index|view)', scrape_callback=ScrapeCallback())
+#    link_crawler('http://example.webscraping.com/', '/(index|view)', scrape_callback=ScrapeCallback())

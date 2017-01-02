@@ -1,0 +1,253 @@
+area,population,iso,country,capital,continent,tld,currency_code,currency_name,phone,postal_code_format,postal_code_regex,languages,neighbours
+390580 square kilometres,11651858,ZW,Zimbabwe,Harare,AF,.zw,ZWL,Dollar,263,,,"en-ZW,sn,nr,nd",ZA MZ BW ZM 
+752614 square kilometres,13460305,ZM,Zambia,Lusaka,AF,.zm,ZMW,Kwacha,260,#####,^(\d{5})$,"en-ZM,bem,loz,lun,lue,ny,toi",ZW TZ MZ CD NA MW AO 
+527970 square kilometres,23495361,YE,Yemen,Sanaa,AS,.ye,YER,Rial,967,,,ar-YE,SA OM 
+266000 square kilometres,273008,EH,Western Sahara,El-Aaiun,AF,.eh,MAD,Dirham,212,,,"ar,mey",DZ MR MA 
+274 square kilometres,16025,WF,Wallis and Futuna,Mata Utu,OC,.wf,XPF,Franc,681,#####,^(986\d{2})$,"wls,fud,fr-WF", 
+329560 square kilometres,89571130,VN,Vietnam,Hanoi,AS,.vn,VND,Dong,84,######,^(\d{6})$,"vi,en,fr,zh,km",CN LA KH 
+912050 square kilometres,27223228,VE,Venezuela,Caracas,SA,.ve,VEF,Bolivar,58,####,^(\d{4})$,es-VE,GY BR CO 
+0 square kilometres,921,VA,Vatican,Vatican City,EU,.va,EUR,Euro,379,#####,^(\d{5})$,"la,it,fr",IT 
+12200 square kilometres,221552,VU,Vanuatu,Port Vila,OC,.vu,VUV,Vatu,678,,,"bi,en-VU,fr-VU", 
+447400 square kilometres,27865738,UZ,Uzbekistan,Tashkent,AS,.uz,UZS,Som,998,######,^(\d{6})$,"uz,ru,tg",TM AF KG TJ KZ 
+176220 square kilometres,3477000,UY,Uruguay,Montevideo,SA,.uy,UYU,Peso,598,#####,^(\d{5})$,es-UY,BR AR 
+0 square kilometres,0,UM,United States Minor Outlying Islands,,OC,.um,USD,Dollar,1,,,en-UM, 
+9629091 square kilometres,310232863,US,United States,Washington,NA,.us,USD,Dollar,1,#####-####,^\d{5}(-\d{4})?$,"en-US,es-US,haw,fr",CA MX CU 
+244820 square kilometres,62348447,GB,United Kingdom,London,EU,.uk,GBP,Pound,44,@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA,^(([A-Z]\d{2}[A-Z]{2})|([A-Z]\d{3}[A-Z]{2})|([A-Z]{2}\d{2}[A-Z]{2})|([A-Z]{2}\d{3}[A-Z]{2})|([A-Z]\d[A-Z]\d[A-Z]{2})|([A-Z]{2}\d[A-Z]\d[A-Z]{2})|(GIR0AA))$,"en-GB,cy-GB,gd",IE 
+82880 square kilometres,4975593,AE,United Arab Emirates,Abu Dhabi,AS,.ae,AED,Dirham,971,,,"ar-AE,fa,en,hi,ur",SA OM 
+603700 square kilometres,45415596,UA,Ukraine,Kiev,EU,.ua,UAH,Hryvnia,380,#####,^(\d{5})$,"uk,ru-UA,rom,pl,hu",PL MD HU SK BY RO RU 
+236040 square kilometres,33398682,UG,Uganda,Kampala,AF,.ug,UGX,Shilling,256,,,"en-UG,lg,sw,ar",TZ KE SS CD RW 
+352 square kilometres,108708,VI,U.S. Virgin Islands,Charlotte Amalie,NA,.vi,USD,Dollar,+1-340,#####-####,^\d{5}(-\d{4})?$,en-VI, 
+26 square kilometres,10472,TV,Tuvalu,Funafuti,OC,.tv,AUD,Dollar,688,,,"tvl,en,sm,gil", 
+430 square kilometres,20556,TC,Turks and Caicos Islands,Cockburn Town,NA,.tc,USD,Dollar,+1-649,TKCA 1ZZ,^(TKCA 1ZZ)$,en-TC, 
+488100 square kilometres,4940916,TM,Turkmenistan,Ashgabat,AS,.tm,TMT,Manat,993,######,^(\d{6})$,"tk,ru,uz",AF IR UZ KZ 
+780580 square kilometres,77804122,TR,Turkey,Ankara,AS,.tr,TRY,Lira,90,#####,^(\d{5})$,"tr-TR,ku,diq,az,av",SY GE IQ IR GR AM AZ BG 
+163610 square kilometres,10589025,TN,Tunisia,Tunis,AF,.tn,TND,Dinar,216,####,^(\d{4})$,"ar-TN,fr",DZ LY 
+5128 square kilometres,1228691,TT,Trinidad and Tobago,Port of Spain,NA,.tt,TTD,Dollar,+1-868,,,"en-TT,hns,fr,es,zh", 
+748 square kilometres,122580,TO,Tonga,Nuku'alofa,OC,.to,TOP,Pa'anga,676,,,"to,en-TO", 
+10 square kilometres,1466,TK,Tokelau,,OC,.tk,NZD,Dollar,690,,,"tkl,en-TK", 
+56785 square kilometres,6587239,TG,Togo,Lome,AF,.tg,XOF,Franc,228,,,"fr-TG,ee,hna,kbp,dag,ha",BJ GH BF 
+514000 square kilometres,67089500,TH,Thailand,Bangkok,AS,.th,THB,Baht,66,#####,^(\d{5})$,"th,en",LA MM KH MY 
+945087 square kilometres,41892895,TZ,Tanzania,Dodoma,AF,.tz,TZS,Shilling,255,,,"sw-TZ,en,ar",MZ KE CD RW ZM BI UG MW 
+143100 square kilometres,7487489,TJ,Tajikistan,Dushanbe,AS,.tj,TJS,Somoni,992,######,^(\d{6})$,"tg,ru",CN AF KG UZ 
+35980 square kilometres,22894384,TW,Taiwan,Taipei,AS,.tw,TWD,Dollar,886,#####,^(\d{5})$,"zh-TW,zh,nan,hak", 
+185180 square kilometres,22198110,SY,Syria,Damascus,AS,.sy,SYP,Pound,963,,,"ar-SY,ku,hy,arc,fr,en",IQ JO IL TR LB 
+41290 square kilometres,7581000,CH,Switzerland,Berne,EU,.ch,CHF,Franc,41,####,^(\d{4})$,"de-CH,fr-CH,it-CH,rm",DE IT LI FR AT 
+449964 square kilometres,9555893,SE,Sweden,Stockholm,EU,.se,SEK,Krona,46,### ##,^(?:SE)*(\d{5})$,"sv-SE,se,sma,fi-SE",NO FI 
+17363 square kilometres,1354051,SZ,Swaziland,Mbabane,AF,.sz,SZL,Lilangeni,268,@###,^([A-Z]\d{3})$,"en-SZ,ss-SZ",ZA MZ 
+62049 square kilometres,2550,SJ,Svalbard and Jan Mayen,Longyearbyen,EU,.sj,NOK,Krone,47,,,"no,ru", 
+163270 square kilometres,492829,SR,Suriname,Paramaribo,SA,.sr,SRD,Dollar,597,,,"nl-SR,en,srn,hns,jv",GY BR GF 
+1861484 square kilometres,35000000,SD,Sudan,Khartoum,AF,.sd,SDG,Pound,249,#####,^(\d{5})$,"ar-SD,en,fia",SS TD EG ET ER LY CF 
+65610 square kilometres,21513990,LK,Sri Lanka,Colombo,AS,.lk,LKR,Rupee,94,#####,^(\d{5})$,"si,ta,en", 
+504782 square kilometres,46505963,ES,Spain,Madrid,EU,.es,EUR,Euro,34,#####,^(\d{5})$,"es-ES,ca,gl,eu,oc",AD PT GI FR MA 
+644329 square kilometres,8260490,SS,South Sudan,Juba,AF,,SSP,Pound,211,,,en,CD CF ET KE SD UG  
+98480 square kilometres,48422644,KR,South Korea,Seoul,AS,.kr,KRW,Won,82,SEOUL ###-###,^(?:SEOUL)*(\d{6})$,"ko-KR,en",KP 
+3903 square kilometres,30,GS,South Georgia and the South Sandwich Islands,Grytviken,AN,.gs,GBP,Pound,,,,en, 
+1219912 square kilometres,49000000,ZA,South Africa,Pretoria,AF,.za,ZAR,Rand,27,####,^(\d{4})$,"zu,xh,af,nso,en-ZA,tn,st,ts,ss,ve,nr",ZW SZ MZ BW NA LS 
+637657 square kilometres,10112453,SO,Somalia,Mogadishu,AF,.so,SOS,Shilling,252,@@  #####,^([A-Z]{2}\d{5})$,"so-SO,ar-SO,it,en-SO",ET KE DJ 
+28450 square kilometres,559198,SB,Solomon Islands,Honiara,OC,.sb,SBD,Dollar,677,,,"en-SB,tpi", 
+20273 square kilometres,2007000,SI,Slovenia,Ljubljana,EU,.si,EUR,Euro,386,####,^(?:SI)*(\d{4})$,"sl,sh",HU IT HR AT 
+48845 square kilometres,5455000,SK,Slovakia,Bratislava,EU,.sk,EUR,Euro,421,### ##,^(\d{5})$,"sk,hu",PL HU CZ UA AT 
+34 square kilometres,37429,SX,Sint Maarten,Philipsburg,NA,.sx,ANG,Guilder,599,,,"nl,en",MF 
+692 square kilometres,4701069,SG,Singapore,Singapur,AS,.sg,SGD,Dollar,65,######,^(\d{6})$,"cmn,en-SG,ms-SG,ta-SG,zh-SG", 
+71740 square kilometres,5245695,SL,Sierra Leone,Freetown,AF,.sl,SLL,Leone,232,,,"en-SL,men,tem",LR GN 
+455 square kilometres,88340,SC,Seychelles,Victoria,AF,.sc,SCR,Rupee,248,,,"en-SC,fr-SC", 
+102350 square kilometres,10829175,CS,Serbia and Montenegro,Belgrade,EU,.cs,RSD,Dinar,381,#####,^(\d{5})$,"cu,hu,sq,sr",AL HU MK RO HR BA BG 
+88361 square kilometres,7344847,RS,Serbia,Belgrade,EU,.rs,RSD,Dinar,381,######,^(\d{6})$,"sr,hu,bs,rom",AL HU MK RO HR BA BG ME XK 
+196190 square kilometres,12323252,SN,Senegal,Dakar,AF,.sn,XOF,Franc,221,#####,^(\d{5})$,"fr-SN,wo,fuc,mnk",GN MR GW GM ML 
+1960582 square kilometres,25731776,SA,Saudi Arabia,Riyadh,AS,.sa,SAR,Rial,966,#####,^(\d{5})$,ar-SA,QA OM IQ YE JO AE KW 
+1001 square kilometres,175808,ST,Sao Tome and Principe,Sao Tome,AF,.st,STD,Dobra,239,,,pt-ST, 
+61 square kilometres,31477,SM,San Marino,San Marino,EU,.sm,EUR,Euro,378,4789#,^(4789\d)$,it-SM,IT 
+2944 square kilometres,192001,WS,Samoa,Apia,OC,.ws,WST,Tala,685,,,"sm,en-WS", 
+389 square kilometres,104217,VC,Saint Vincent and the Grenadines,Kingstown,NA,.vc,XCD,Dollar,+1-784,,,"en-VC,fr", 
+242 square kilometres,7012,PM,Saint Pierre and Miquelon,Saint-Pierre,NA,.pm,EUR,Euro,508,#####,^(97500)$,fr-PM, 
+53 square kilometres,35925,MF,Saint Martin,Marigot,NA,.gp,EUR,Euro,590,### ###,,fr,SX 
+616 square kilometres,160922,LC,Saint Lucia,Castries,NA,.lc,XCD,Dollar,+1-758,,,en-LC, 
+261 square kilometres,51134,KN,Saint Kitts and Nevis,Basseterre,NA,.kn,XCD,Dollar,+1-869,,,en-KN, 
+410 square kilometres,7460,SH,Saint Helena,Jamestown,AF,.sh,SHP,Pound,290,STHL 1ZZ,^(STHL1ZZ)$,en-SH, 
+21 square kilometres,8450,BL,Saint Barthelemy,Gustavia,NA,.gp,EUR,Euro,590,### ###,,fr, 
+26338 square kilometres,11055976,RW,Rwanda,Kigali,AF,.rw,RWF,Franc,250,,,"rw,en-RW,fr-RW,sw",TZ CD BI UG 
+17100000 square kilometres,140702000,RU,Russia,Moscow,EU,.ru,RUB,Ruble,7,######,^(\d{6})$,"ru,tt,xal,cau,ady,kv,ce,tyv,cv,udm,tut,mns,bua,myv,mdf,chm,ba,inh,tut,kbd,krc,ava,sah,nog",GE CN BY UA KZ LV PL EE LT FI MN NO AZ KP 
+237500 square kilometres,21959278,RO,Romania,Bucharest,EU,.ro,RON,Leu,40,######,^(\d{6})$,"ro,hu,rom",MD HU UA CS BG RS 
+2517 square kilometres,776948,RE,Reunion,Saint-Denis,AF,.re,EUR,Euro,262,#####,^((97|98)(4|7|8)\d{2})$,fr-RE, 
+342000 square kilometres,3039126,CG,Republic of the Congo,Brazzaville,AF,.cg,XAF,Franc,242,,,"fr-CG,kg,ln-CG",CF GA CD CM AO 
+11437 square kilometres,840926,QA,Qatar,Doha,AS,.qa,QAR,Rial,974,,,"ar-QA,es",SA 
+9104 square kilometres,3916632,PR,Puerto Rico,San Juan,NA,.pr,USD,Dollar,+1-787 and 1-939,#####-####,^(\d{9})$,"en-PR,es-PR", 
+92391 square kilometres,10676000,PT,Portugal,Lisbon,EU,.pt,EUR,Euro,351,####-###,^(\d{7})$,"pt-PT,mwl",ES 
+312685 square kilometres,38500000,PL,Poland,Warsaw,EU,.pl,PLN,Zloty,48,##-###,^(\d{5})$,pl,DE LT SK CZ BY UA RU 
+47 square kilometres,46,PN,Pitcairn,Adamstown,OC,.pn,NZD,Dollar,870,,,en-PN, 
+300000 square kilometres,99900177,PH,Philippines,Manila,AS,.ph,PHP,Peso,63,####,^(\d{4})$,"tl,en-PH,fil", 
+1285220 square kilometres,29907003,PE,Peru,Lima,SA,.pe,PEN,Sol,51,,,"es-PE,qu,ay",EC CL BO BR CO 
+406750 square kilometres,6375830,PY,Paraguay,Asuncion,SA,.py,PYG,Guarani,595,####,^(\d{4})$,"es-PY,gn",BO BR AR 
+462840 square kilometres,6064515,PG,Papua New Guinea,Port Moresby,OC,.pg,PGK,Kina,675,###,^(\d{3})$,"en-PG,ho,meu,tpi",ID 
+78200 square kilometres,3410676,PA,Panama,Panama City,NA,.pa,PAB,Balboa,507,,,"es-PA,en",CR CO 
+5970 square kilometres,3800000,PS,Palestinian Territory,East Jerusalem,AS,.ps,ILS,Shekel,970,,,ar-PS,JO IL 
+458 square kilometres,19907,PW,Palau,Melekeok,OC,.pw,USD,Dollar,680,96940,^(96940)$,"pau,sov,en-PW,tox,ja,fil,zh", 
+803940 square kilometres,184404791,PK,Pakistan,Islamabad,AS,.pk,PKR,Rupee,92,#####,^(\d{5})$,"ur-PK,en-PK,pa,sd,ps,brh",CN AF IR IN 
+212460 square kilometres,2967717,OM,Oman,Muscat,AS,.om,OMR,Rial,968,###,^(\d{3})$,"ar-OM,en,bal,ur",SA YE AE 
+324220 square kilometres,5009150,NO,Norway,Oslo,EU,.no,NOK,Krone,47,####,^(\d{4})$,"no,nb,nn,se,fi",FI RU SE 
+477 square kilometres,53883,MP,Northern Mariana Islands,Saipan,OC,.mp,USD,Dollar,+1-670,,,"fil,tl,zh,ch-MP,en-MP", 
+120540 square kilometres,22912177,KP,North Korea,Pyongyang,AS,.kp,KPW,Won,850,###-###,^(\d{6})$,ko-KP,CN KR RU 
+34 square kilometres,1828,NF,Norfolk Island,Kingston,OC,.nf,AUD,Dollar,672,####,^(\d{4})$,en-NF, 
+260 square kilometres,2166,NU,Niue,Alofi,OC,.nu,NZD,Dollar,683,,,"niu,en-NU", 
+923768 square kilometres,154000000,NG,Nigeria,Abuja,AF,.ng,NGN,Naira,234,######,^(\d{6})$,"en-NG,ha,yo,ig,ff",TD NE BJ CM 
+1267000 square kilometres,15878271,NE,Niger,Niamey,AF,.ne,XOF,Franc,227,####,^(\d{4})$,"fr-NE,ha,kr,dje",TD BJ DZ LY BF NG ML 
+129494 square kilometres,5995928,NI,Nicaragua,Managua,NA,.ni,NIO,Cordoba,505,###-###-#,^(\d{7})$,"es-NI,en",CR HN 
+268680 square kilometres,4252277,NZ,New Zealand,Wellington,OC,.nz,NZD,Dollar,64,####,^(\d{4})$,"en-NZ,mi", 
+19060 square kilometres,216494,NC,New Caledonia,Noumea,OC,.nc,XPF,Franc,687,#####,^(\d{5})$,fr-NC, 
+960 square kilometres,136197,AN,Netherlands Antilles,Willemstad,NA,.an,ANG,Guilder,599,,,"nl-AN,en,es",GP 
+41526 square kilometres,16645000,NL,Netherlands,Amsterdam,EU,.nl,EUR,Euro,31,#### @@,^(\d{4}[A-Z]{2})$,"nl-NL,fy-NL",DE BE 
+140800 square kilometres,28951852,NP,Nepal,Kathmandu,AS,.np,NPR,Rupee,977,#####,^(\d{5})$,"ne,en",CN IN 
+21 square kilometres,10065,NR,Nauru,Yaren,OC,.nr,AUD,Dollar,674,,,"na,en-NR", 
+825418 square kilometres,2128471,NA,Namibia,Windhoek,AF,.na,NAD,Dollar,264,,,"en-NA,af,de,hz,naq",ZA BW ZM AO 
+678500 square kilometres,53414374,MM,Myanmar,Nay Pyi Taw,AS,.mm,MMK,Kyat,95,#####,^(\d{5})$,my,CN LA TH BD IN 
+801590 square kilometres,22061451,MZ,Mozambique,Maputo,AF,.mz,MZN,Metical,258,####,^(\d{4})$,"pt-MZ,vmw",ZW TZ SZ ZA ZM MW 
+446550 square kilometres,31627428,MA,Morocco,Rabat,AF,.ma,MAD,Dirham,212,#####,^(\d{5})$,"ar-MA,fr",DZ EH ES 
+102 square kilometres,9341,MS,Montserrat,Plymouth,NA,.ms,XCD,Dollar,+1-664,,,en-MS, 
+14026 square kilometres,666730,ME,Montenegro,Podgorica,EU,.me,EUR,Euro,382,#####,^(\d{5})$,"sr,hu,bs,sq,hr,rom",AL HR BA RS XK 
+1565000 square kilometres,3086918,MN,Mongolia,Ulan Bator,AS,.mn,MNT,Tugrik,976,######,^(\d{6})$,"mn,ru",CN RU 
+1 square kilometres,32965,MC,Monaco,Monaco,EU,.mc,EUR,Euro,377,#####,^(\d{5})$,"fr-MC,en,it",FR 
+33843 square kilometres,4324000,MD,Moldova,Chisinau,EU,.md,MDL,Leu,373,MD-####,^(?:MD)*(\d{4})$,"ro,ru,gag,tr",RO UA 
+702 square kilometres,107708,FM,Micronesia,Palikir,OC,.fm,USD,Dollar,691,#####,^(\d{5})$,"en-FM,chk,pon,yap,kos,uli,woe,nkr,kpg", 
+1972550 square kilometres,112468855,MX,Mexico,Mexico City,NA,.mx,MXN,Peso,52,#####,^(\d{5})$,es-MX,GT US BZ 
+374 square kilometres,159042,YT,Mayotte,Mamoudzou,AF,.yt,EUR,Euro,262,#####,^(\d{5})$,fr-YT, 
+2040 square kilometres,1294104,MU,Mauritius,Port Louis,AF,.mu,MUR,Rupee,230,,,"en-MU,bho,fr", 
+1030700 square kilometres,3205060,MR,Mauritania,Nouakchott,AF,.mr,MRO,Ouguiya,222,,,"ar-MR,fuc,snk,fr,mey,wo",SN DZ EH ML 
+1100 square kilometres,432900,MQ,Martinique,Fort-de-France,NA,.mq,EUR,Euro,596,#####,^(\d{5})$,fr-MQ, 
+181 square kilometres,65859,MH,Marshall Islands,Majuro,OC,.mh,USD,Dollar,692,,,"mh,en-MH", 
+316 square kilometres,403000,MT,Malta,Valletta,EU,.mt,EUR,Euro,356,@@@ ###|@@@ ##,^([A-Z]{3}\d{2}\d?)$,"mt,en-MT", 
+1240000 square kilometres,13796354,ML,Mali,Bamako,AF,.ml,XOF,Franc,223,,,"fr-ML,bm",SN NE DZ CI GN MR BF 
+300 square kilometres,395650,MV,Maldives,Male,AS,.mv,MVR,Rufiyaa,960,#####,^(\d{5})$,"dv,en", 
+329750 square kilometres,28274729,MY,Malaysia,Kuala Lumpur,AS,.my,MYR,Ringgit,60,#####,^(\d{5})$,"ms-MY,en,zh,ta,te,ml,pa,th",BN TH ID 
+118480 square kilometres,15447500,MW,Malawi,Lilongwe,AF,.mw,MWK,Kwacha,265,,,"ny,yao,tum,swk",TZ MZ ZM 
+587040 square kilometres,21281844,MG,Madagascar,Antananarivo,AF,.mg,MGA,Ariary,261,###,^(\d{3})$,"fr-MG,mg", 
+25333 square kilometres,2062294,MK,Macedonia,Skopje,EU,.mk,MKD,Denar,389,####,^(\d{4})$,"mk,sq,tr,rmm,sr",AL GR CS BG RS XK 
+254 square kilometres,449198,MO,Macao,Macao,AS,.mo,MOP,Pataca,853,,,"zh,zh-MO,pt", 
+2586 square kilometres,497538,LU,Luxembourg,Luxembourg,EU,.lu,EUR,Euro,352,L-####,^(\d{4})$,"lb,de-LU,fr-LU",DE BE FR 
+65200 square kilometres,3565000,LT,Lithuania,Vilnius,EU,.lt,LTL,Litas,370,LT-#####,^(?:LT)*(\d{5})$,"lt,ru,pl",PL BY RU LV 
+160 square kilometres,35000,LI,Liechtenstein,Vaduz,EU,.li,CHF,Franc,423,####,^(\d{4})$,de-LI,CH AT 
+1759540 square kilometres,6461454,LY,Libya,Tripolis,AF,.ly,LYD,Dinar,218,,,"ar-LY,it,en",TD NE DZ SD TN EG 
+111370 square kilometres,3685076,LR,Liberia,Monrovia,AF,.lr,LRD,Dollar,231,####,^(\d{4})$,en-LR,SL CI GN 
+30355 square kilometres,1919552,LS,Lesotho,Maseru,AF,.ls,LSL,Loti,266,###,^(\d{3})$,"en-LS,st,zu,xh",ZA 
+10400 square kilometres,4125247,LB,Lebanon,Beirut,AS,.lb,LBP,Pound,961,#### ####|####,^(\d{4}(\d{4})?)$,"ar-LB,fr-LB,en,hy",SY IL 
+64589 square kilometres,2217969,LV,Latvia,Riga,EU,.lv,EUR,Euro,371,LV-####,^(?:LV)*(\d{4})$,"lv,ru,lt",LT EE BY RU 
+236800 square kilometres,6368162,LA,Laos,Vientiane,AS,.la,LAK,Kip,856,#####,^(\d{5})$,"lo,fr,en",CN MM KH TH VN 
+198500 square kilometres,5508626,KG,Kyrgyzstan,Bishkek,AS,.kg,KGS,Som,996,######,^(\d{6})$,"ky,uz,ru",CN TJ UZ KZ 
+17820 square kilometres,2789132,KW,Kuwait,Kuwait City,AS,.kw,KWD,Dinar,965,#####,^(\d{5})$,"ar-KW,en",SA IQ 
+10908 square kilometres,1800000,XK,Kosovo,Pristina,EU,,EUR,Euro,,,,"sq,sr",RS AL MK ME 
+811 square kilometres,92533,KI,Kiribati,Tarawa,OC,.ki,AUD,Dollar,686,,,"en-KI,gil", 
+582650 square kilometres,40046566,KE,Kenya,Nairobi,AF,.ke,KES,Shilling,254,#####,^(\d{5})$,"en-KE,sw-KE",ET TZ SS SO UG 
+2717300 square kilometres,15340000,KZ,Kazakhstan,Astana,AS,.kz,KZT,Tenge,7,######,^(\d{6})$,"kk,ru",TM CN KG UZ RU 
+92300 square kilometres,6407085,JO,Jordan,Amman,AS,.jo,JOD,Dinar,962,#####,^(\d{5})$,"ar-JO,en",SY SA IQ IL PS 
+116 square kilometres,90812,JE,Jersey,Saint Helier,EU,.je,GBP,Pound,+44-1534,@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA,^(([A-Z]\d{2}[A-Z]{2})|([A-Z]\d{3}[A-Z]{2})|([A-Z]{2}\d{2}[A-Z]{2})|([A-Z]{2}\d{3}[A-Z]{2})|([A-Z]\d[A-Z]\d[A-Z]{2})|([A-Z]{2}\d[A-Z]\d[A-Z]{2})|(GIR0AA))$,"en,pt", 
+377835 square kilometres,127288000,JP,Japan,Tokyo,AS,.jp,JPY,Yen,81,###-####,^(\d{7})$,ja, 
+10991 square kilometres,2847232,JM,Jamaica,Kingston,NA,.jm,JMD,Dollar,+1-876,,,en-JM, 
+322460 square kilometres,21058798,CI,Ivory Coast,Yamoussoukro,AF,.ci,XOF,Franc,225,,,fr-CI,LR GH GN BF ML 
+301230 square kilometres,60340328,IT,Italy,Rome,EU,.it,EUR,Euro,39,#####,^(\d{5})$,"it-IT,de-IT,fr-IT,sc,ca,co,sl",CH VA SI SM FR AT 
+20770 square kilometres,7353985,IL,Israel,Jerusalem,AS,.il,ILS,Shekel,972,#####,^(\d{5})$,"he,ar-IL,en-IL,",SY JO LB EG PS 
+572 square kilometres,75049,IM,Isle of Man,"Douglas, Isle of Man",EU,.im,GBP,Pound,+44-1624,@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA,^(([A-Z]\d{2}[A-Z]{2})|([A-Z]\d{3}[A-Z]{2})|([A-Z]{2}\d{2}[A-Z]{2})|([A-Z]{2}\d{3}[A-Z]{2})|([A-Z]\d[A-Z]\d[A-Z]{2})|([A-Z]{2}\d[A-Z]\d[A-Z]{2})|(GIR0AA))$,"en,gv", 
+70280 square kilometres,4622917,IE,Ireland,Dublin,EU,.ie,EUR,Euro,353,,,"en-IE,ga-IE",GB 
+437072 square kilometres,29671605,IQ,Iraq,Baghdad,AS,.iq,IQD,Dinar,964,#####,^(\d{5})$,"ar-IQ,ku,hy",SY SA IR JO TR KW 
+1648000 square kilometres,76923300,IR,Iran,Tehran,AS,.ir,IRR,Rial,98,##########,^(\d{10})$,"fa-IR,ku",TM AF IQ AM PK AZ TR 
+1919440 square kilometres,242968342,ID,Indonesia,Jakarta,AS,.id,IDR,Rupiah,62,#####,^(\d{5})$,"id,en,nl,jv",PG TL MY 
+3287590 square kilometres,1173108018,IN,India,New Delhi,AS,.in,INR,Rupee,91,######,^(\d{6})$,"en-IN,hi,bn,te,mr,ta,ur,gu,kn,ml,or,pa,as,bh,sat,ks,ne,sd,kok,doi,mni,sit,sa,fr,lus,inc",CN NP MM BT PK BD 
+103000 square kilometres,308910,IS,Iceland,Reykjavik,EU,.is,ISK,Krona,354,###,^(\d{3})$,"is,en,de,da,sv,no", 
+93030 square kilometres,9982000,HU,Hungary,Budapest,EU,.hu,HUF,Forint,36,####,^(\d{4})$,hu-HU,SK SI RO UA CS HR AT RS 
+1092 square kilometres,6898686,HK,Hong Kong,Hong Kong,AS,.hk,HKD,Dollar,852,,,"zh-HK,yue,zh,en", 
+112090 square kilometres,7989415,HN,Honduras,Tegucigalpa,NA,.hn,HNL,Lempira,504,@@####,^([A-Z]{2}\d{4})$,es-HN,GT NI SV 
+412 square kilometres,0,HM,Heard Island and McDonald Islands,,AN,.hm,AUD,Dollar,,,,, 
+27750 square kilometres,9648924,HT,Haiti,Port-au-Prince,NA,.ht,HTG,Gourde,509,HT####,^(?:HT)*(\d{4})$,"ht,fr-HT",DO 
+214970 square kilometres,748486,GY,Guyana,Georgetown,SA,.gy,GYD,Dollar,592,,,en-GY,SR BR VE 
+36120 square kilometres,1565126,GW,Guinea-Bissau,Bissau,AF,.gw,XOF,Franc,245,####,^(\d{4})$,"pt-GW,pov",SN GN 
+245857 square kilometres,10324025,GN,Guinea,Conakry,AF,.gn,GNF,Franc,224,,,fr-GN,LR SN SL CI GW ML 
+78 square kilometres,65228,GG,Guernsey,St Peter Port,EU,.gg,GBP,Pound,+44-1481,@# #@@|@## #@@|@@# #@@|@@## #@@|@#@ #@@|@@#@ #@@|GIR0AA,^(([A-Z]\d{2}[A-Z]{2})|([A-Z]\d{3}[A-Z]{2})|([A-Z]{2}\d{2}[A-Z]{2})|([A-Z]{2}\d{3}[A-Z]{2})|([A-Z]\d[A-Z]\d[A-Z]{2})|([A-Z]{2}\d[A-Z]\d[A-Z]{2})|(GIR0AA))$,"en,fr", 
+108890 square kilometres,13550440,GT,Guatemala,Guatemala City,NA,.gt,GTQ,Quetzal,502,#####,^(\d{5})$,es-GT,MX HN BZ SV 
+549 square kilometres,159358,GU,Guam,Hagatna,OC,.gu,USD,Dollar,+1-671,969##,^(969\d{2})$,"en-GU,ch-GU", 
+1780 square kilometres,443000,GP,Guadeloupe,Basse-Terre,NA,.gp,EUR,Euro,590,#####,^((97|98)\d{3})$,fr-GP,AN 
+344 square kilometres,107818,GD,Grenada,St. George's,NA,.gd,XCD,Dollar,+1-473,,,en-GD, 
+2166086 square kilometres,56375,GL,Greenland,Nuuk,NA,.gl,DKK,Krone,299,####,^(\d{4})$,"kl,da-GL,en", 
+131940 square kilometres,11000000,GR,Greece,Athens,EU,.gr,EUR,Euro,30,### ##,^(\d{5})$,"el-GR,en,fr",AL MK TR BG 
+6 square kilometres,27884,GI,Gibraltar,Gibraltar,EU,.gi,GIP,Pound,350,,,"en-GI,es,it,pt",ES 
+239460 square kilometres,24339838,GH,Ghana,Accra,AF,.gh,GHS,Cedi,233,,,"en-GH,ak,ee,tw",CI TG BF 
+357021 square kilometres,81802257,DE,Germany,Berlin,EU,.de,EUR,Euro,49,#####,^(\d{5})$,de,CH PL NL DK BE CZ LU FR AT 
+69700 square kilometres,4630000,GE,Georgia,Tbilisi,AS,.ge,GEL,Lari,995,####,^(\d{4})$,"ka,ru,hy,az",AM AZ TR RU 
+11300 square kilometres,1593256,GM,Gambia,Banjul,AF,.gm,GMD,Dalasi,220,,,"en-GM,mnk,wof,wo,ff",SN 
+267667 square kilometres,1545255,GA,Gabon,Libreville,AF,.ga,XAF,Franc,241,,,fr-GA,CM GQ CG 
+7829 square kilometres,140,TF,French Southern Territories,Port-aux-Francais,AN,.tf,EUR,Euro,,,,fr, 
+4167 square kilometres,270485,PF,French Polynesia,Papeete,OC,.pf,XPF,Franc,689,#####,^((97|98)7\d{2})$,"fr-PF,ty", 
+91000 square kilometres,195506,GF,French Guiana,Cayenne,SA,.gf,EUR,Euro,594,#####,^((97|98)3\d{2})$,fr-GF,SR BR 
+547030 square kilometres,64768389,FR,France,Paris,EU,.fr,EUR,Euro,33,#####,^(\d{5})$,"fr-FR,frp,br,co,ca,eu,oc",CH DE BE LU IT AD MC ES 
+337030 square kilometres,5244000,FI,Finland,Helsinki,EU,.fi,EUR,Euro,358,#####,^(?:FI)*(\d{5})$,"fi-FI,sv-FI,smn",NO RU SE 
+18270 square kilometres,875983,FJ,Fiji,Suva,OC,.fj,FJD,Dollar,679,,,"en-FJ,fj", 
+1399 square kilometres,48228,FO,Faroe Islands,Torshavn,EU,.fo,DKK,Krone,298,FO-###,^(?:FO)*(\d{3})$,"fo,da-FO", 
+12173 square kilometres,2638,FK,Falkland Islands,Stanley,SA,.fk,FKP,Pound,500,,,en-FK, 
+1127127 square kilometres,88013491,ET,Ethiopia,Addis Ababa,AF,.et,ETB,Birr,251,####,^(\d{4})$,"am,en-ET,om-ET,ti-ET,so-ET,sid",ER KE SD SS SO DJ 
+45226 square kilometres,1291170,EE,Estonia,Tallinn,EU,.ee,EUR,Euro,372,#####,^(\d{5})$,"et,ru",RU LV 
+121320 square kilometres,5792984,ER,Eritrea,Asmara,AF,.er,ERN,Nakfa,291,,,"aa-ER,ar,tig,kun,ti-ER",ET SD DJ 
+28051 square kilometres,1014999,GQ,Equatorial Guinea,Malabo,AF,.gq,XAF,Franc,240,,,"es-GQ,fr",GA CM 
+21040 square kilometres,6052064,SV,El Salvador,San Salvador,NA,.sv,USD,Dollar,503,CP ####,^(?:CP)*(\d{4})$,es-SV,GT HN 
+1001450 square kilometres,80471869,EG,Egypt,Cairo,AF,.eg,EGP,Pound,20,#####,^(\d{5})$,"ar-EG,en,fr",LY SD IL 
+283560 square kilometres,14790608,EC,Ecuador,Quito,SA,.ec,USD,Dollar,593,@####@,^([a-zA-Z]\d{4}[a-zA-Z])$,es-EC,PE CO 
+15007 square kilometres,1154625,TL,East Timor,Dili,OC,.tl,USD,Dollar,670,,,"tet,pt-TL,id,en",ID 
+48730 square kilometres,9823821,DO,Dominican Republic,Santo Domingo,NA,.do,DOP,Peso,+1-809 and 1-829,#####,^(\d{5})$,es-DO,HT 
+754 square kilometres,72813,DM,Dominica,Roseau,NA,.dm,XCD,Dollar,+1-767,,,en-DM, 
+23000 square kilometres,740528,DJ,Djibouti,Djibouti,AF,.dj,DJF,Franc,253,,,"fr-DJ,ar,so-DJ,aa",ER ET SO 
+43094 square kilometres,5484000,DK,Denmark,Copenhagen,EU,.dk,DKK,Krone,45,####,^(\d{4})$,"da-DK,en,fo,de-DK",DE 
+2345410 square kilometres,70916439,CD,Democratic Republic of the Congo,Kinshasa,AF,.cd,CDF,Franc,243,,,"fr-CD,ln,kg",TZ CF SS RW ZM BI UG CG AO 
+78866 square kilometres,10476000,CZ,Czech Republic,Prague,EU,.cz,CZK,Koruna,420,### ##,^(\d{5})$,"cs,sk",PL DE SK AT 
+9250 square kilometres,1102677,CY,Cyprus,Nicosia,EU,.cy,EUR,Euro,357,####,^(\d{4})$,"el-CY,tr-CY,en", 
+444 square kilometres,141766,CW,Curacao,Willemstad,NA,.cw,ANG,Guilder,599,,,"nl,pap", 
+110860 square kilometres,11423000,CU,Cuba,Havana,NA,.cu,CUP,Peso,53,CP #####,^(?:CP)*(\d{5})$,es-CU,US 
+56542 square kilometres,4491000,HR,Croatia,Zagreb,EU,.hr,HRK,Kuna,385,#####,^(?:HR)*(\d{5})$,"hr-HR,sr",HU SI CS BA ME RS 
+51100 square kilometres,4516220,CR,Costa Rica,San Jose,NA,.cr,CRC,Colon,506,####,^(\d{4})$,"es-CR,en",PA NI 
+240 square kilometres,21388,CK,Cook Islands,Avarua,OC,.ck,NZD,Dollar,682,,,"en-CK,mi", 
+2170 square kilometres,773407,KM,Comoros,Moroni,AF,.km,KMF,Franc,269,,,"ar,fr-KM", 
+1138910 square kilometres,44205293,CO,Colombia,Bogota,SA,.co,COP,Peso,57,,,es-CO,EC PE PA BR VE 
+14 square kilometres,628,CC,Cocos Islands,West Island,AS,.cc,AUD,Dollar,61,,,"ms-CC,en", 
+135 square kilometres,1500,CX,Christmas Island,Flying Fish Cove,AS,.cx,AUD,Dollar,61,####,^(\d{4})$,"en,zh,ms-CC", 
+9596960 square kilometres,1330044000,CN,China,Beijing,AS,.cn,CNY,Yuan Renminbi,86,######,^(\d{6})$,"zh-CN,yue,wuu,dta,ug,za",LA BT TJ KZ MN AF NP MM KG PK KP RU VN IN 
+756950 square kilometres,16746491,CL,Chile,Santiago,SA,.cl,CLP,Peso,56,#######,^(\d{7})$,es-CL,PE BO AR 
+1284000 square kilometres,10543464,TD,Chad,N'Djamena,AF,.td,XAF,Franc,235,,,"fr-TD,ar-TD,sre",NE LY CF SD CM NG 
+622984 square kilometres,4844927,CF,Central African Republic,Bangui,AF,.cf,XAF,Franc,236,,,"fr-CF,sg,ln,kg",TD SD CD SS CM CG 
+262 square kilometres,44270,KY,Cayman Islands,George Town,NA,.ky,KYD,Dollar,+1-345,,,en-KY, 
+4033 square kilometres,508659,CV,Cape Verde,Praia,AF,.cv,CVE,Escudo,238,####,^(\d{4})$,pt-CV, 
+9984670 square kilometres,33679000,CA,Canada,Ottawa,NA,.ca,CAD,Dollar,1,@#@ #@#,^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]) ?(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$,"en-CA,fr-CA,iu",US 
+475440 square kilometres,19294149,CM,Cameroon,Yaounde,AF,.cm,XAF,Franc,237,,,"en-CM,fr-CM",TD CF GA GQ CG NG 
+181040 square kilometres,14453680,KH,Cambodia,Phnom Penh,AS,.kh,KHR,Riels,855,#####,^(\d{5})$,"km,fr,en",LA TH VN 
+27830 square kilometres,9863117,BI,Burundi,Bujumbura,AF,.bi,BIF,Franc,257,,,"fr-BI,rn",TZ CD RW 
+274200 square kilometres,16241811,BF,Burkina Faso,Ouagadougou,AF,.bf,XOF,Franc,226,,,fr-BF,NE BJ GH CI TG ML 
+110910 square kilometres,7148785,BG,Bulgaria,Sofia,EU,.bg,BGN,Lev,359,####,^(\d{4})$,"bg,tr-BG",MK GR RO CS TR RS 
+5770 square kilometres,395027,BN,Brunei,Bandar Seri Begawan,AS,.bn,BND,Dollar,673,@@####,^([A-Z]{2}\d{4})$,"ms-BN,en-BN",MY 
+153 square kilometres,21730,VG,British Virgin Islands,Road Town,NA,.vg,USD,Dollar,+1-284,,,en-VG, 
+60 square kilometres,4000,IO,British Indian Ocean Territory,Diego Garcia,AS,.io,USD,Dollar,246,,,en-IO, 
+8511965 square kilometres,201103330,BR,Brazil,Brasilia,SA,.br,BRL,Real,55,#####-###,^(\d{8})$,"pt-BR,es,en,fr",SR PE BO UY GY PY GF VE CO AR 
+49 square kilometres,0,BV,Bouvet Island,,AN,.bv,NOK,Krone,,,,, 
+600370 square kilometres,2029307,BW,Botswana,Gaborone,AF,.bw,BWP,Pula,267,,,"en-BW,tn-BW",ZW ZA NA 
+51129 square kilometres,4590000,BA,Bosnia and Herzegovina,Sarajevo,EU,.ba,BAM,Marka,387,#####,^(\d{5})$,"bs,hr-BA,sr-BA",CS HR ME RS 
+328 square kilometres,18012,BQ,"Bonaire, Saint Eustatius and Saba",,NA,.bq,USD,Dollar,599,,,"nl,pap,en", 
+1098580 square kilometres,9947418,BO,Bolivia,Sucre,SA,.bo,BOB,Boliviano,591,,,"es-BO,qu,ay",PE CL PY BR AR 
+47000 square kilometres,699847,BT,Bhutan,Thimphu,AS,.bt,BTN,Ngultrum,975,,,dz,CN IN 
+53 square kilometres,65365,BM,Bermuda,Hamilton,NA,.bm,BMD,Dollar,+1-441,@@ ##,^([A-Z]{2}\d{2})$,"en-BM,pt", 
+112620 square kilometres,9056010,BJ,Benin,Porto-Novo,AF,.bj,XOF,Franc,229,,,fr-BJ,NE TG BF NG 
+22966 square kilometres,314522,BZ,Belize,Belmopan,NA,.bz,BZD,Dollar,501,,,"en-BZ,es",GT MX 
+30510 square kilometres,10403000,BE,Belgium,Brussels,EU,.be,EUR,Euro,32,####,^(\d{4})$,"nl-BE,fr-BE,de-BE",DE NL LU FR 
+207600 square kilometres,9685000,BY,Belarus,Minsk,EU,.by,BYR,Ruble,375,######,^(\d{6})$,"be,ru",PL LT UA RU LV 
+431 square kilometres,285653,BB,Barbados,Bridgetown,NA,.bb,BBD,Dollar,+1-246,BB#####,^(?:BB)*(\d{5})$,en-BB, 
+144000 square kilometres,156118464,BD,Bangladesh,Dhaka,AS,.bd,BDT,Taka,880,####,^(\d{4})$,"bn-BD,en",MM IN 
+665 square kilometres,738004,BH,Bahrain,Manama,AS,.bh,BHD,Dinar,973,####|###,^(\d{3}\d?)$,"ar-BH,en,fa,ur", 
+13940 square kilometres,301790,BS,Bahamas,Nassau,NA,.bs,BSD,Dollar,+1-242,,,en-BS, 
+86600 square kilometres,8303512,AZ,Azerbaijan,Baku,AS,.az,AZN,Manat,994,AZ ####,^(?:AZ)*(\d{4})$,"az,ru,hy",GE IR AM TR RU 
+83858 square kilometres,8205000,AT,Austria,Vienna,EU,.at,EUR,Euro,43,####,^(\d{4})$,"de-AT,hr,hu,sl",CH DE HU SK CZ IT SI LI 
+7686850 square kilometres,21515754,AU,Australia,Canberra,OC,.au,AUD,Dollar,61,####,^(\d{4})$,en-AU, 
+193 square kilometres,71566,AW,Aruba,Oranjestad,NA,.aw,AWG,Guilder,297,,,"nl-AW,es,en", 
+29800 square kilometres,2968000,AM,Armenia,Yerevan,AS,.am,AMD,Dram,374,######,^(\d{6})$,hy,GE IR AZ TR 
+2766890 square kilometres,41343201,AR,Argentina,Buenos Aires,SA,.ar,ARS,Peso,54,@####@@@,^([A-Z]\d{4}[A-Z]{3})$,"es-AR,en,it,de,fr,gn",CL BO UY PY BR 
+443 square kilometres,86754,AG,Antigua and Barbuda,St. John's,NA,.ag,XCD,Dollar,+1-268,,,en-AG, 
+14000000 square kilometres,0,AQ,Antarctica,,AN,.aq,,,,,,, 
+102 square kilometres,13254,AI,Anguilla,The Valley,NA,.ai,XCD,Dollar,+1-264,,,en-AI, 
+1246700 square kilometres,13068161,AO,Angola,Luanda,AF,.ao,AOA,Kwanza,244,,,pt-AO,CD NA ZM CG 
+468 square kilometres,84000,AD,Andorra,Andorra la Vella,EU,.ad,EUR,Euro,376,AD###,^(?:AD)*(\d{3})$,ca,ES FR 
+199 square kilometres,57881,AS,American Samoa,Pago Pago,OC,.as,USD,Dollar,+1-684,,,"en-AS,sm,to", 
+2381740 square kilometres,34586184,DZ,Algeria,Algiers,AF,.dz,DZD,Dinar,213,#####,^(\d{5})$,ar-DZ,NE EH LY MR TN MA ML 
+28748 square kilometres,2986952,AL,Albania,Tirana,EU,.al,ALL,Lek,355,,,"sq,el",MK GR CS ME RS XK 
+1580 square kilometres,26711,AX,Aland Islands,Mariehamn,EU,.ax,EUR,Euro,+358-18,#####,^(?:FI)*(\d{5})$,sv-AX, 
+647500 square kilometres,29121286,AF,Afghanistan,Kabul,AS,.af,AFN,Afghani,93,,,"fa-AF,ps,uz-AF,tk",TM CN IR TJ PK UZ 
