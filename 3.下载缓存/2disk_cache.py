@@ -1,3 +1,4 @@
+#coding: utf
 import os
 import re
 import urlparse
@@ -54,7 +55,7 @@ class DiskCache:
                     data = zlib.decompress(data)
                 result, timestamp = pickle.loads(data)
                 if self.has_expired(timestamp):
-                    raise KeyError(url + ' has expired')
+                    raise KeyError(url + ' has expired')	##Downloader的result = None,则重新下载
                 return result
         else:
             # URL has not yet been cached
@@ -120,4 +121,5 @@ class DiskCache:
 
 
 if __name__ == '__main__':
-    link_crawler('http://example.webscraping.com/', '/(index|view)', cache=DiskCache())
+    #link_crawler('http://example.webscraping.com/', '/(index|view)', cache=DiskCache())
+    link_crawler('http://127.0.0.1:8000/places/', '/places/default/(index|view)/', cache=DiskCache())
