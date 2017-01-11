@@ -161,26 +161,6 @@ class DiskCache:
         # restrict maximum number of characters
         filename = '/'.join(segment[:255] for segment in filename.split('/'))
         return os.path.join(self.cache_dir, filename) #拼接当前目录和文件名为完整目录
-
-    """
-    Dictionary interface that stores cached 
-    values in the file system rather than in memory.
-    The file path is formed from an md5 hash of the key.
-
-    >>> cache = DiskCache()
-    >>> url = 'http://example.webscraping.com'
-    >>> result = {'html': '...'}
-    >>> cache[url] = result
-    >>> cache[url]['html'] == result['html']
-    True
-    >>> cache = DiskCache(expires=timedelta())
-    >>> cache[url] = result
-    >>> cache[url]
-    Traceback (most recent call last):
-     ...
-    KeyError: 'http://example.webscraping.com has expired'
-    >>> cache.clear()
-    """
     
     def __getitem__(self, url):
         ...
@@ -218,7 +198,7 @@ class DiskCache:
         with open(path, 'wb') as fp:
             fp.write(pickle.dumps(result))
 ```
-在__setitem__()中，我们使用url_to_path()方法将URL映射为安全文件名，在必要情况下还需要创建目录。这里使用的pickle模块会把输入转化为字符串（序列化），然后保存到磁盘中。
+在`__setitem__()`中，我们使用url_to_path()方法将URL映射为安全文件名，在必要情况下还需要创建目录。这里使用的pickle模块会把输入转化为字符串（序列化），然后保存到磁盘中。
 ```python
 import pickle
 
@@ -242,7 +222,7 @@ class DiskCache:
     def __setitem__(self, url, result):
 	...
 ```
-在__getitem__()中，还是先用url_to_path()方法将URL映射为安全文件名。然后检查文件是否存在，如果存在则加载内容，并执行反序列化，恢复其原始数据类型；如果不存在，则说明缓存中还没有该URL的数据，此时会抛出KeyError异常。
+在`__getitem__()`中，还是先用url_to_path()方法将URL映射为安全文件名。然后检查文件是否存在，如果存在则加载内容，并执行反序列化，恢复其原始数据类型；如果不存在，则说明缓存中还没有该URL的数据，此时会抛出KeyError异常。
 ## 2.2缓存测试
 可以在python命令前加`time`计时。我们可以发现，如果是在本地服务器的网站，当缓存为空时爬虫实际耗时`0m58.710s`，第二次运行全部从缓存读取花了`0m0.221s`,快了`265`多倍。如果是爬取远程服务器的网站的数据时，将会耗更多时间。
 ```
@@ -289,7 +269,7 @@ sys	0m0.020s
 wu_being@ubuntukylin64:~/GitHub/WebScrapingWithPython/3.下载缓存$ 
 ```
 ## 2.4清理过期数据
-本节中，我们将为缓存数据添加过期时间，以便爬虫知道何时需要重新下载网页。在构造方法中，我们使用timedelta对象将默认过期时间设置为30天，在__set__方法中把当前时间戳保存在序列化数据中，在__get__方法中对比当前时间和缓存时间，检查是否过期。
+本节中，我们将为缓存数据添加过期时间，以便爬虫知道何时需要重新下载网页。在构造方法中，我们使用timedelta对象将默认过期时间设置为30天，在`__set__`方法中把当前时间戳保存在序列化数据中，在`__get__`方法中对比当前时间和缓存时间，检查是否过期。
 ```python
 from datetime import datetime, timedelta
 
@@ -392,5 +372,29 @@ KeyError: 'http://www.baidu.com has expired'
 
 要想避免这些问题，我们需要把多个缓存网页合并到一个文件中，并使用类似B+树的算法进行索引。但我们不会自己实现这种算法，而是在下一节中介绍已实现这类算法的数据库。
 # 3数据库缓存
+爬取时，我们可能需要缓存大量数据，但又无须任何复杂的连接操作，因此我们将选用NoSQL数据库，这种数据库比传统的关系型数据库更容易扩展。在本节中，我们将选用目前非常流行的MongoDB作为缓存数据库。
+## 3.1NoSQL是什么
+	NoSQL全称为Not Only SQL，是一种相对较新的数据库设计方式。传统的关系模型使用是固定模式，并将数据分割到各个表中。然而，对于大数据集的情况，数据量太大使其难以存放在单一服务器中，此时就需要扩展到多台服务器。不过，关系模型对于这种扩展的支持并不够好，因为在查询多个表时，数据可能在不同的服务器中。相反，NoSQL数据库通常是无模式的，从设计之初就考虑了跨服务器无缝分片的问题。在NoSQL中，有多种方式可以实现该目标，分别是：
+- 列数据存储（如HBase）；
+- 键值对存储（如Redis）；
+- 图形数据库（如Neo4j）；
+- 面向文档的数据库（如MongoDB）。
 
-
+## 3.2安装MongoDB
+MongoDB可以从https://www.mongodb.org/downloads 下载。然后安装其Python封装库：
+```
+pip install pymongo
+```
+检测安装是否成功，在本地启动MongoDB服务器：
+```
+wu_being@ubuntukylin64:~$ mongod -dbpath .
+```
+然后，在Python中，使用MongoDB的默认端口尝试连接MongoDB：
+```python
+>>> from pymongo import MongoClient
+>>> client=MongoClient('localhost',27017)
+```
+## 3.3MongoDB概述
+## 3.4MongoDB缓存实现
+## 3.5压缩存储
+## 3.6缓存测试
