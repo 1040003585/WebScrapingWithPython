@@ -7,6 +7,8 @@ from datetime import datetime, timedelta
 from pymongo import MongoClient
 from bson.binary import Binary
 
+from link_crawler import link_crawler
+
 
 class MongoCache:
     """
@@ -70,3 +72,9 @@ class MongoCache:
 
     def clear(self):
         self.db.webpage.drop()
+
+
+
+if __name__ == '__main__':
+    #link_crawler('http://example.webscraping.com/', '/(index|view)', cache=DiskCache())
+    link_crawler('http://127.0.0.1:8000/places/', '/places/default/(index|view)/', cache=MongoCache())
