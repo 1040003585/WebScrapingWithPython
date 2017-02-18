@@ -41,7 +41,7 @@ class MongoCache:
         #create collection to store cached webpages,
         # which is the equivalent of a table in a relational database
         self.db = self.client.cache
-        self.db.webpage.create_index('timestamp100s', expireAfterSeconds=expires.total_seconds())		#timestamp
+        self.db.webpage.create_index('timestamp3', expireAfterSeconds=expires.total_seconds())#timestamp
 
     def __contains__(self, url):
         try:
@@ -66,18 +66,15 @@ class MongoCache:
         """Save value for this URL
         """
         #record = {'result': result, 'timestamp': datetime.utcnow()}
-        record = {'result': Binary(zlib.compress(pickle.dumps(result))), 'timestamp100s': datetime.utcnow()}	#timestamp
+        record = {'result': Binary(zlib.compress(pickle.dumps(result))), 'timestamp3': datetime.utcnow()}#timestamp
         self.db.webpage.update({'_id': url}, {'$set': record}, upsert=True)
 
 
     def clear(self):
         self.db.webpage.drop()
-        print 'drop() successful'
 
 
 
-if __name__ == '__main__':	
-    #link_crawler('http://example.webscraping.com/', '/(index|view)', cache=MongoCache())
+if __name__ == '__main__':
+    link_crawler('http://example.webscraping.com/', '/(index|view)', cache=MongoCache())
     #link_crawler('http://127.0.0.1:8000/places/', '/places/default/(index|view)/', cache=MongoCache())
-    link_crawler('http://127.0.0.1:8000/places/', '/places/default/(index|view)/', cache=MongoCache(expires=timedelta(seconds=100)))
-

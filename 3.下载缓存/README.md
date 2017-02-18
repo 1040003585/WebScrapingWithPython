@@ -59,6 +59,7 @@ def link_crawler(... cache=None):
     # track how many URL's have been downloaded
     num_urls = 0
     rp = get_robots(seed_url)
+    #cache.clear()			###############################
     D = Downloader(delay=delay, user_agent=user_agent, proxies=proxies, num_retries=num_retries, cache=cache)
 
     while crawl_queue:
@@ -387,7 +388,28 @@ pip install pymongo
 ```
 检测安装是否成功，在本地启动MongoDB服务器：
 ```
-wu_being@ubuntukylin64:~$ mongod -dbpath .
+wu_being@ubuntukylin64:~/GitHub/WebScrapingWithPython/3.下载缓存$ mongod -dbpath MongoD
+2017-01-17T21:20:46.224+0800 [initandlisten] MongoDB starting : pid=1978 port=27017 dbpath=MongoD 64-bit host=ubuntukylin64
+2017-01-17T21:20:46.224+0800 [initandlisten] db version v2.6.10
+2017-01-17T21:20:46.224+0800 [initandlisten] git version: nogitversion
+2017-01-17T21:20:46.225+0800 [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2017-01-17T21:20:46.225+0800 [initandlisten] build info: Linux lgw01-12 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 BOOST_LIB_VERSION=1_58
+2017-01-17T21:20:46.225+0800 [initandlisten] allocator: tcmalloc
+2017-01-17T21:20:46.225+0800 [initandlisten] options: { storage: { dbPath: "MongoD" } }
+2017-01-17T21:20:46.269+0800 [initandlisten] journal dir=MongoD/journal
+2017-01-17T21:20:46.270+0800 [initandlisten] recover : no journal files present, no recovery needed
+2017-01-17T21:20:49.126+0800 [initandlisten] preallocateIsFaster=true 33.72
+2017-01-17T21:20:51.932+0800 [initandlisten] preallocateIsFaster=true 32.7
+2017-01-17T21:20:55.729+0800 [initandlisten] preallocateIsFaster=true 32.36
+2017-01-17T21:20:55.730+0800 [initandlisten] preallocateIsFaster check took 9.459 secs
+2017-01-17T21:20:55.730+0800 [initandlisten] preallocating a journal file MongoD/journal/prealloc.0
+2017-01-17T21:20:58.042+0800 [initandlisten] 		File Preallocator Progress: 608174080/1073741824	56%
+2017-01-17T21:21:03.290+0800 [initandlisten] 		File Preallocator Progress: 744488960/1073741824	69%
+2017-01-17T21:21:08.043+0800 [initandlisten] 		File Preallocator Progress: 954204160/1073741824	88%
+2017-01-17T21:21:18.347+0800 [initandlisten] preallocating a journal file MongoD/journal/prealloc.1
+2017-01-17T21:21:21.166+0800 [initandlisten] 		File Preallocator Progress: 639631360/1073741824	59%
+2017-01-17T21:21:26.328+0800 [initandlisten] 		File Preallocator Progress: 754974720/1073741824	70%
+...
 ```
 然后，在Python中，使用MongoDB的默认端口尝试连接MongoDB：
 ```python
@@ -395,7 +417,50 @@ wu_being@ubuntukylin64:~$ mongod -dbpath .
 >>> client=MongoClient('localhost',27017)
 ```
 ## 3.3MongoDB概述
+下面是MongoDB示例代码：
+```python
+>>> from pymongo import MongoClient
+>>> client=MongoClient('localhost',27017)
+>>> url='http://www.baidu.com/view/China-47'
+>>> html='...<html>...'
+>>> db=client.cache
+>>> db.webpage.insert({'url':url,'html':html})
+ObjectId('587e2cb26b00c10b956e0be9')
+>>> db.webpage.find_one({'url':url})
+{u'url': u'http://www.baidu.com/view/China-47', u'_id': ObjectId('587e2cb26b00c10b956e0be9'), u'html': u'...<html>...'}
+>>> db.webpage.find({'url':url})
+<pymongo.cursor.Cursor object at 0x7fcde0ca60d0>
+>>> db.webpage.find({'url':url}).count()
+1
+```
+当插入同一条记录时，MongoDB会欣然接受并执行这次操作，但通过查找发现记录没更新。
+```python
+>>> db.webpage.insert({'url':url,'html':html})
+ObjectId('587e2d546b00c10b956e0bea')
+>>> db.webpage.find({'url':url}).count()
+2
+>>> db.webpage.find_one({'url':url})
+{u'url': u'http://www.baidu.com/view/China-47', u'_id': ObjectId('587e2cb26b00c10b956e0be9'), u'html': u'...<html>...'}
+```
+为了存储最新的记录，并避免重复记录，我们将ID设置为URL，并执行`upsert`操作。该操作表示当记录存在时则更新记录，否则插入新记录。
+```python
+>>> 
+>>> new_html='<...>...'
+>>> db.webpage.update({'_id':url},{'$set':{'html':new_html}},upsert=True)
+{'updatedExisting': True, u'nModified': 1, u'ok': 1, u'n': 1}
+>>> db.webpage.find_one({'_id':url})
+{u'_id': u'http://www.baidu.com/view/China-47', u'html': u'<...>...'}
+>>> db.webpage.find({'_id':url}).count()
+1
+>>> db.webpage.update({'_id':url},{'$set':{'html':new_html}},upsert=True)
+{'updatedExisting': True, u'nModified': 0, u'ok': 1, u'n': 1}
+>>> db.webpage.find({'_id':url}).count()
+1
+>>> 
+```
+MongoDB官方文档：http://docs.mongodb.org/manual/ 
 ## 3.4MongoDB缓存实现
+现在我们已经准备好创建基于MongoDB的缓存了，这里使用了和之前的DiskCache类相同的接口。我们在下面构造方法中创建了`timestamp`索引，在达到给定的时间戳之后，MongoDB的这一便捷功能可以自动过期删除记录。
 ```python
 import pickle
 from datetime import datetime, timedelta
@@ -420,7 +485,7 @@ class MongoCache:
         """
         record = self.db.webpage.find_one({'_id': url})
         if record:
-            #return record['result']
+            return record['result']
         else:
             raise KeyError(url + ' does not exist')
 
@@ -429,6 +494,27 @@ class MongoCache:
         """
         record = {'result': result, 'timestamp': datetime.utcnow()}
         self.db.webpage.update({'_id': url}, {'$set': record}, upsert=True)
+```
+下面我们来测试一下这个MongoCache类，我们用默认0时间间隔`timedelta()`对象进行测试，此时记录创建后应该会马上会被删除，但实际却没有。这是因为MongoDB运行机制造成的，MongoDB后台运行了一个每分钟检查一次过期记录的任务。所以我们可以再等一分钟，就会发现缓存过期机制已经运行成功了。
+```python
+>>> from mongo_cache import MongoCache
+>>> from datetime import timedelta
+>>> cache=MongoCache(expires=timedelta())
+>>> result={'html':'.....'}
+>>> cache[url]=result
+>>> cache[url]
+{'html': '.....'}
+>>> cache[url]
+{'html': '.....'}
+>>> import time
+>>> import time;time.sleep(60)
+>>> cache[url]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "mongo_cache.py", line 62, in __getitem__
+    raise KeyError(url + ' does not exist')
+KeyError: 'http://www.baidu.com/view/China-47 does not exist'
+>>> 
 ```
 ## 3.5压缩存储
 ```python
@@ -455,7 +541,30 @@ class MongoCache:
         self.db.webpage.update({'_id': url}, {'$set': record}, upsert=True)
 ```
 ## 3.6缓存测试
+```
+wu_being@ubuntukylin64:~/GitHub/WebScrapingWithPython/3.下载缓存$ time python 3mongo_cache.py 
+Downloading: http://127.0.0.1:8000/places/
+Downloading: http://127.0.0.1:8000/places/default/index/1
+Downloading: http://127.0.0.1:8000/places/default/index/2
+...
+Downloading: http://127.0.0.1:8000/places/default/view/Algeria-4
+Downloading: http://127.0.0.1:8000/places/default/view/Albania-3
+Downloading: http://127.0.0.1:8000/places/default/view/Aland-Islands-2
+Downloading: http://127.0.0.1:8000/places/default/view/Afghanistan-1
 
+real	0m59.239s
+user	0m1.164s
+sys	0m0.108s
+
+
+wu_being@ubuntukylin64:~/GitHub/WebScrapingWithPython/3.下载缓存$ time python 3mongo_cache.py 
+
+real	0m0.695s
+user	0m0.408s
+sys	0m0.044s
+
+```
+可以看出，用数据库缓存的读取时间是磁盘缓存的两倍，但成功地避免了磁盘缓存的缺点。
 ## 3.7MongoDB缓存完整代码
 ```python
 try:
@@ -501,7 +610,7 @@ class MongoCache:
         #create collection to store cached webpages,
         # which is the equivalent of a table in a relational database
         self.db = self.client.cache
-        self.db.webpage.create_index('timestamp', expireAfterSeconds=expires.total_seconds())
+        self.db.webpage.create_index('timestamp100s', expireAfterSeconds=expires.total_seconds())		#timestamp
 
     def __contains__(self, url):
         try:
@@ -526,16 +635,19 @@ class MongoCache:
         """Save value for this URL
         """
         #record = {'result': result, 'timestamp': datetime.utcnow()}
-        record = {'result': Binary(zlib.compress(pickle.dumps(result))), 'timestamp': datetime.utcnow()}
+        record = {'result': Binary(zlib.compress(pickle.dumps(result))), 'timestamp100s': datetime.utcnow()}	#timestamp
         self.db.webpage.update({'_id': url}, {'$set': record}, upsert=True)
 
 
     def clear(self):
         self.db.webpage.drop()
+        print 'drop() successful'
 
 
 
-if __name__ == '__main__':
-    #link_crawler('http://example.webscraping.com/', '/(index|view)', cache=DiskCache())
-    link_crawler('http://127.0.0.1:8000/places/', '/places/default/(index|view)/', cache=MongoCache())
+if __name__ == '__main__':	
+    #link_crawler('http://example.webscraping.com/', '/(index|view)', cache=MongoCache())
+    #link_crawler('http://127.0.0.1:8000/places/', '/places/default/(index|view)/', cache=MongoCache())
+    link_crawler('http://127.0.0.1:8000/places/', '/places/default/(index|view)/', cache=MongoCache(expires=timedelta(seconds=100)))
+
 ```

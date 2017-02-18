@@ -17,6 +17,7 @@ def link_crawler(seed_url, link_regex=None, delay=0, max_depth=-1, max_urls=-1, 
     # track how many URL's have been downloaded
     num_urls = 0
     rp = get_robots(seed_url)
+    #cache.clear()			###############################
     D = Downloader(delay=delay, user_agent=user_agent, proxies=proxies, num_retries=num_retries, cache=cache)
 
     while crawl_queue:
