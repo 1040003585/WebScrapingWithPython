@@ -13,7 +13,8 @@ In the shell the installation instructions are as follows:
     unzip web2py_src.zip
     # now download the app
     cd web2py/applications
-    hg clone ssh://hg@bitbucket.org/wswp/places
+    # hg clone ssh://hg@bitbucket.org/wswp/places #old
+    hg clone https://bitbucket.org/wswp/places
     # now start the web2py server with a password for the admin interface
     cd ..
     python web2py.py --password=<password>
