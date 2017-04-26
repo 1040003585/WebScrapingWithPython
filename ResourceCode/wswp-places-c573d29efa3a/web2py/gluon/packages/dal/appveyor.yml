@@ -1,0 +1,49 @@
+build: false
+
+services:
+  - mssql2014
+
+environment:
+  matrix:
+    - PYTHON: "C:/Python27"
+      adapter: "mssql"
+    - PYTHON: "C:/Python27"
+      adapter: "mssqln"
+    - PYTHON: "C:/Python33"
+      adapter: "mssql"
+    - PYTHON: "C:/Python33"
+      adapter: "mssqln"
+    - PYTHON: "C:/Python34"
+      adapter: "mssql"
+    - PYTHON: "C:/Python34"
+      adapter: "mssqln"
+    - PYTHON: "C:/Python35"
+      adapter: "mssql"
+    - PYTHON: "C:/Python35"
+      adapter: "mssqln"
+
+clone_depth: 50
+
+init:
+  - "ECHO %PYTHON%"
+  - set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+
+install:
+  - ps: Start-FileDownload https://bootstrap.pypa.io/get-pip.py
+  - python get-pip.py
+  - pip install tox==1.9.2
+  - pip install codecov
+
+before_test:
+  - ps: |
+        while($LASTEXITCODE -ne 0)
+        {
+          & sqlcmd -S "(local)\SQL2014" -b -U "sa" -P "Password12!" -Q "CREATE DATABASE pydal COLLATE Latin1_General_CS_AS;" -d "master"
+          sleep 10; $val++; Write-Host Waiting ... $val; if($val -ge 10) {break}
+        }
+
+test_script:
+  - tox -e coverage-%adapter%
+
+after_test:
+  - codecov

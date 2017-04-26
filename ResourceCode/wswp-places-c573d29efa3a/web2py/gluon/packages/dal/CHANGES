@@ -1,0 +1,148 @@
+pydal changelog
+===============
+
+Version 16.03
+-------------
+
+Released on March 24th 2016
+
+- Implemented faster SQLite logic in absence of db queris
+- PEP8 improvements
+- Added support for new relic (newrelic>=2.10.0.8)
+- Added support for outerscoped tablenames
+- Fixed Google Cloud SQL support
+- Fixed Oracle DB support
+- Serveral bugfixes
+
+
+Version 15.12
+-------------
+
+Released on December 16th 2015
+
+- Added IPV6 address enclosed in brackets support for URI's host
+- [MongoDB] Implemented unique and notnull support for fields during insert
+- Several bugfixes
+
+
+Version 15.09
+-------------
+
+Released on September 28th 2015
+
+- [MongoDB] Implemented `orderby_on_limitby`
+- [MongoDB] Implemented `distinct` for count
+- [MongoDB] Implemented `select()` with `having` parameter
+- [MongoDB] Implemented coalesce operations
+- Virtual fields are now ordered depending on definition
+- Allow usage of custom `Row` classes
+- Added `.where` method to `Set` and `DAL`
+- Several bugfixes
+
+
+Version 15.07
+-------------
+
+Released on July 10th 2015
+
+- Added `smart_query` support for 'contains' on fields of type 'list:string'
+- Implemented correct escaping for 'LIKE'
+  (see https://github.com/web2py/pydal/issues/212)
+- Added support for `ondelete` with fields of type 'list:reference' on
+  `MongoDBAdapter`
+- Improved `BasicStorage` performance
+- Added arithmetic expressions support on `MongoDBAdapter`
+- Added aggregations support on `MongoDBAdapter`
+- `Table.validate_and_insert` and `Table.validate_and_update` methods now
+  validates also empty fields
+- Added support for expression operators on `MongoDBAdapter`
+- Several bugfixes
+
+
+Version 15.05.29
+----------------
+
+Released on May 29th 2015
+
+- Fixed a unicode error with `PostgreSQLAdapter` introduced with 15.05
+
+
+Version 15.05.26
+----------------
+
+Released on May 26th 2015
+
+- Fixed `DAL.__getattr__`
+- Fixed backward compatibility breaks introduced with 15.05
+
+
+Version 15.05
+-------------
+
+Released on May 23rd 2015
+
+- Fixed True/False expressions in MSSQL
+- Introduced `iterselect()` and `IterRows`
+- Extended `SQLCustomType` to support `widget` & `represent` attributes
+- Updated `MongoDBAdapter` to support pymongo 3.0
+- Implemented JSON serialization for objects
+- Refactored many internal objects to improve performance
+- Added python 3.x support (experimental)
+- Several fixes and improvements to `MongoDBAdapter`
+- Implemented unicode handling in MSSQL (experimental) via mssql4n and mssql3n
+  adapters
+    Notes: These adapters will probably become the de-facto standard for MSSQL handling; any other adapter will continue to be supported just for legacy
+    databases
+- Restricted table and field names to "valid" ones
+    Notes: the "dotted-notation-friendly" syntax for names means anything:
+      - alphanumeric
+      - not starting with underscore or an integer
+    `rname` attribute is intended to be used for anything else
+
+
+Version 15.03
+-------------
+
+Released on March 23rd 2015
+
+- Fixed `redefine` with lazy tables
+- Added tests for `update_or_insert`, `bulk_insert`,
+  `validate_and_update_or_insert`
+- Enhanced connections open/close flow
+- Enhanced logging flow
+- Refactored google adapters: `ndb` is now used by default
+- Added default representation for `reference` fields
+- Fixed some caching issues when using `pickle`
+- Several improvements and fixes in `MongoDBAdapter`
+
+
+Version 15.02.27
+----------------
+
+Released on February 27th 2015
+
+- Fixed a connection bug
+- Fixed a security flaw which could lead to db password storing in cache
+
+
+Version 15.02
+-------------
+
+Released on February 11th 2015
+
+- Updated pg8000 support in `PostgreSQLAdapter`
+- Fixed `ilike` for `Field` type 'list:string' in `PostgreSQLAdapter`
+- Added case sensitive/insensitive tests for `contains`
+- Fixed expression evaluation on `PostgreSQLAdapter`
+- Fixed `common_filter` issue in `_enable_record_versioning`
+- Removed contrib drivers
+- Fixed `uuid` attribute of `DAL` class
+- Added caching tests
+
+
+Version 0.12.25
+---------------
+
+Released on December 25th 2014
+
+First public preview release.
