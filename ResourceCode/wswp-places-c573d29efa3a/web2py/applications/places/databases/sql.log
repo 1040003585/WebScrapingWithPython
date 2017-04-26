@@ -1,0 +1,77 @@
+timestamp: 2017-04-26T21:11:01.196804
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2017-04-26T21:11:01.346606
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2017-04-26T21:11:01.446969
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-04-26T21:11:01.559018
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2017-04-26T21:11:01.803346
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2017-04-26T21:11:01.903628
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2017-04-26T21:11:02.005100
+CREATE TABLE places(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created_on TIMESTAMP,
+    country_id INTEGER,
+    national_flag CHAR(512),
+    area DOUBLE,
+    population INTEGER,
+    iso CHAR(512),
+    country CHAR(512),
+    capital CHAR(512),
+    continent CHAR(512),
+    tld CHAR(512),
+    currency_code CHAR(512),
+    currency_name CHAR(512),
+    phone CHAR(512),
+    postal_code_format CHAR(512),
+    postal_code_regex CHAR(512),
+    languages CHAR(512),
+    neighbours CHAR(512)
+);
+success!

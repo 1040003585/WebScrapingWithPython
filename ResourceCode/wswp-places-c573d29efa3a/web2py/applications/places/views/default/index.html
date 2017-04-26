@@ -1,0 +1,19 @@
+{{ extend 'layout.html' }}
+
+<div id="results">
+{{= result }}
+</div>
+
+<div id="pagination">
+{{ if page > 0: }}
+    <a href="{{= URL(args=page-1) }}">&lt; Previous</a>
+{{ else: }}
+    &lt; Previous
+{{ pass }}
+|
+{{ if num_records == page_size: }}
+    <a href="{{= URL(args=page+1) }}">Next &gt;</a>
+{{ else: }}
+    Next &gt;
+{{ pass }}
+</div>

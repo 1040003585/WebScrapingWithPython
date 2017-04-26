@@ -1,0 +1,118 @@
+{{ extend 'layout.html' }}
+
+<form>
+<table>
+    <tr>
+        <th>Name:</th>
+        <td><input id="search_term" /></td>
+    </tr>
+    <tr>
+        <th>Page size:</th>
+        <td>
+            <select id="page_size">
+                <option>4</option>
+                <option selected>10</option>
+                <option>20</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="submit" id="search" value="Search" />
+        </td>
+    </tr>
+</table>
+</form>
+
+<div id="results">
+</div>
+<div id="pagination">
+</div>
+
+<script language="javascript" type="text/javascript">
+var NUM_COLUMNS = 2;
+var page = 0;
+
+
+$(function() {
+    $("form").submit(function() {
+        page = 0;
+        search();
+        return false;
+    });
+
+    load_hash();
+    window.onhashchange = load_hash;
+});
+
+
+function load_hash() {
+    // load previous state from hash string
+    var args = window.location.hash.slice(1).split('|')
+    if(args.length == 3) {
+        $("#search_term").val(args[0]);
+        $("#page_size").val(args[1]);
+        page = parseInt(args[2]);
+        search();
+    }
+}
+
+
+function previous() {
+    page = page - 1;
+    search();
+}
+function next() {
+    page = page + 1;
+    search();
+}
+
+function search() {
+    var data = {
+        search_term: $("#search_term").val(),
+        page_size: parseInt($("#page_size").val()),
+        page: page,
+    };
+    //window.location.hash = data.search_term + '|' + data.page_size + '|' + page;
+
+    $.ajax({
+        dataType: "json",
+        url: "{{= URL(c='ajax', f='search.json') }}?",
+        data: data,
+        success: function(results) {
+            render(results)
+        }
+    });
+}
+
+function render(results) {
+    // add resulting records
+    var html = "<table>";
+    for(var i=0; i < results.records.length; i++) {
+        var record = results.records[i];
+        if(i % NUM_COLUMNS == 0) html += "<tr>";
+        html += "<td>" + record["pretty_link"] + "</td>";
+        if(i % NUM_COLUMNS == NUM_COLUMNS - 1) html += "</tr>";
+    }
+    $("#results").html(html + "</table>");
+
+    // add pagination if necessary
+    html = "";
+    if(results.num_pages > 1) {
+        if(page > 0) {
+            html += "<a id='previous' href='javascript:void(0)' onclick='previous()'>&lt; Previous</a>";
+        } else {
+            html += "&lt; Previous";
+        }
+        html += " | ";
+        if(page + 1 < results.num_pages) {
+            html += "<a id='next' href='javascript:void(0)' onclick='next()'>Next &gt;</a>";
+        } else {
+            html += "Next &gt;";
+        
+        }
+    }
+    $("#pagination").html(html);
+}
+</script>
